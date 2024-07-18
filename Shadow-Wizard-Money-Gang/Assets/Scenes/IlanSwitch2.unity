@@ -132,10 +132,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1224074410}
-  - component: {fileID: 1224074409}
   - component: {fileID: 1224074408}
   - component: {fileID: 1224074407}
   - component: {fileID: 1224074411}
+  - component: {fileID: 1224074412}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -222,19 +222,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1224074409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1224074406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 616e9eafce6e0b34382be5ae4a08a243, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
 --- !u!4 &1224074410
 Transform:
   m_ObjectHideFlags: 0
@@ -285,6 +272,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1224074412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224074406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb76b3a2da53c749ac7f8f5823e744a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeMoveSpeed: 1
+  moveSpeed: 4
+  dashMoveSpeed: 8
+  dashDuration: 0.5
+  dashCooldown: 0.5
+  isDashing: 0
+  movement: {x: 0, y: 0}
 --- !u!1 &1583704766
 GameObject:
   m_ObjectHideFlags: 0
