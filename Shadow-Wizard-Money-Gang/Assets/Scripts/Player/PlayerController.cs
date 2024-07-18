@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private UI_Inventory uiInventory;
+   [SerializeField] private UI_Inventory uiInventory;
 
 
     private PlayerControls playerControls;
