@@ -10,11 +10,31 @@ public class InventoryManager
     {
         itemList = new List<Item>();
 
+        //Current Item list
+        //Sword,
+        //GhastTear,
+        //SpiderEye,
+        //Crystal,
+        //ShadowHorn,
+
+        AddItem(new Item { itemType = Item.ItemType.Sword, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.GhastTear, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.SpiderEye, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.Crystal, amount = 1 });
+        AddItem(new Item { itemType = Item.ItemType.ShadowHorn, amount = 1 });
+        
         //Testing
-        Debug.Log("InventoryManager");
+        //Debug.Log(itemList.Count);
     }
 
-
-
+    public void AddItem(Item item)
+    {
+        itemList.Add(item);
+    }
+     
+    public List<Item> GetItemList()
+    {
+        return itemList;
+    }
 
 }

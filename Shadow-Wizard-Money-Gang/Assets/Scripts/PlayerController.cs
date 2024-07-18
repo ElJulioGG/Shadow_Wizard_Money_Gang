@@ -6,15 +6,24 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private UI_Inventory uiInventory;
+
 
     private PlayerControls playerControls;
     private Vector2 movement;
     private Rigidbody2D rb;
 
+    //Inventory stuff
+    private InventoryManager inventory;
+
     private void Awake()
     {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
+
+        inventory = new InventoryManager();
+
+        uiInventory.SetInventory(inventory);
     }
 
     private void OnEnable()
