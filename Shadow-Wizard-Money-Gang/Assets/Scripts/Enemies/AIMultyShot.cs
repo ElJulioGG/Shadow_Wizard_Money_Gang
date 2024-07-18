@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AIShoot : MonoBehaviour
+public class AIMultyShot : MonoBehaviour
 {
     public GameObject player;
     public float speed;
@@ -23,16 +23,10 @@ public class AIShoot : MonoBehaviour
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if(distance < distanceBetween)
+        //Vision
+        if (distance > distanceBetween && distance < 10)
         {
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
-        }
-
-        if(distance > distanceBetween && distance < 10)
-        {
-            transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-            
         }
 
     }

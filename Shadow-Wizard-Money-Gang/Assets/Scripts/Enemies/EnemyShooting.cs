@@ -37,6 +37,11 @@ public class EnemyShooting : MonoBehaviour
 
     void shoot()
     {
-        Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(0,Vector3.forward));
+        Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(90, Vector3.forward));
+        Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(180, Vector3.forward));
+        Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(270, Vector3.forward));
     }
+
+
 }
