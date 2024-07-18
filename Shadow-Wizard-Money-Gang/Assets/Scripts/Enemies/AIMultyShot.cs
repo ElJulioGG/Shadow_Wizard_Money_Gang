@@ -11,7 +11,7 @@ public class AIMultyShot : MonoBehaviour
     private float distance;
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame

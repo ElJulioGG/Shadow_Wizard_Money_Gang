@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class AIShoot : MonoBehaviour
 {
-    public GameObject player;
+    private GameObject player;
     public float speed;
     public float distanceBetween;
+    public float maxDistance;
+
 
     private float distance;
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class AIShoot : MonoBehaviour
         }
 
         //Vision
-        if(distance > distanceBetween && distance < 10)
+        if(distance > distanceBetween && distance < maxDistance)
         {
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
