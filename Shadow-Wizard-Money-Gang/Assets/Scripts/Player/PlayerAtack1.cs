@@ -22,6 +22,10 @@ public class PlayerAtack1 : MonoBehaviour
     [SerializeField] private float offsetX = 0;
     [SerializeField] private float offsetY = 0;
     [SerializeField] private float offsetZ = 0;
+
+    [SerializeField] private float spriteAnimTime;
+    [SerializeField] private float hitboxDelayTime;
+    [SerializeField] private float hitboxDuration;
     void Start()
     {
         AtackSprite.SetActive(false);
@@ -53,9 +57,9 @@ public class PlayerAtack1 : MonoBehaviour
            // AudioManager.instance.PlaySfx("SwordSwing");
             canFire = false;
             AtackSprite.SetActive(true);
-            boxCollider2D.SetActive(true);
-            Invoke("deactivateSprite", 0.1f);
-            Invoke("deactivateHitbox", 0.1f);
+            Invoke("activateHitbox", hitboxDelayTime);
+            Invoke("deactivateSprite", spriteAnimTime);
+           
             ammo--;
         }
       
@@ -70,6 +74,12 @@ public class PlayerAtack1 : MonoBehaviour
     {
         boxCollider2D.SetActive(false);
        
+    }
+    private void activateHitbox()
+    {
+        boxCollider2D.SetActive(true);
+        Invoke("deactivateHitbox", hitboxDuration);
+
     }
     private void deactivateSprite()
     {

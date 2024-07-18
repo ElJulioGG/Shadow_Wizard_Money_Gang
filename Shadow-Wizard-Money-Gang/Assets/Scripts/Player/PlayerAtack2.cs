@@ -44,7 +44,7 @@ public class PlayerAtack2 : MonoBehaviour
             }
         }
 
-        if (Input.GetMouseButtonDown(0) && canFire && ammo > 0)
+        if (Input.GetMouseButtonDown(1) && canFire && ammo > 0)
         {
             canFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
