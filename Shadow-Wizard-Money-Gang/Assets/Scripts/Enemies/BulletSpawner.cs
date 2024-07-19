@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    enum SpawnerType { Straight, Spin }
+    enum SpawnerType { Straight, StraightDuo, Spin }
 
 
     [Header("Bullet Attributes")]
@@ -44,12 +44,25 @@ public class BulletSpawner : MonoBehaviour
 
     private void Fire() {
 
-        if (bullet) {
-            spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-            spawnedBullet.GetComponent<Bullet>().speed = speed;
-            spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
-            spawnedBullet.transform.rotation = transform.rotation;
-        }
+        
+        
+            if (bullet)
+            {
+     
+                if (spawnerType == SpawnerType.StraightDuo)
+                {
+                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(180, Vector3.forward));
+                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(0, Vector3.forward));
+            }
+                else
+                {
+                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                }
+                spawnedBullet.GetComponent<Bullet>().speed = speed;
+                spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+                spawnedBullet.transform.rotation = transform.rotation;
+            }
+        
 
     }
 }

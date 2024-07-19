@@ -20,6 +20,7 @@ public class EnemyBulletScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         spawnPoint = new Vector2(transform.position.x, transform.position.y);
         transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z);
 
