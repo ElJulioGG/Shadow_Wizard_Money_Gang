@@ -84,12 +84,15 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Roll()
     {
+        playerAnimator.SetBool("IsRolling", true);
         isDashing = true;
         GameManager.instance.playerInvinsibility = true;
         rb.velocity = new Vector2(movement.x * dashMoveSpeed, movement.y * dashMoveSpeed);
+
         yield return new WaitForSeconds(dashDuration);
         GameManager.instance.playerInvinsibility = false;
         isDashing = false;
+        playerAnimator.SetBool("IsRolling", false);
     }
     private IEnumerator HitRecovery()
     {
