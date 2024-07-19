@@ -11,9 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashMoveSpeed = 2f;
     [SerializeField] private float dashDuration = 0.5f;
     [SerializeField] private float dashCooldown = 0.5f;
+    [SerializeField] private float hitRecoveryDuration = 0.5f;
     //[SerializeField] private UI_Inventory uiInventory;
 
 
+    public Animator playerAnimator;
     public bool isDashing;
 
     [SerializeField] private Vector2 movement;
@@ -55,6 +57,10 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Roll());
         }
+        if (GameManager.instance.playerIsHit)
+        {
+            StartCoroutine(HitRecovery());
+        }
     }
 
     private void FixedUpdate()
@@ -79,8 +85,23 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Roll()
     {
         isDashing = true;
+        GameManager.instance.playerInvinsibility = true;
         rb.velocity = new Vector2(movement.x * dashMoveSpeed, movement.y * dashMoveSpeed);
         yield return new WaitForSeconds(dashDuration);
+        GameManager.instance.playerInvinsibility = false;
         isDashing = false;
+    }
+    private IEnumerator HitRecovery()
+    {
+        playerAnimator.SetBool("IsInvincible", true);
+        GameManager.instance.playerIsHit = false;
+        GameManager.instance.playerInvinsibility = true;
+        GameManager.instance.playerHealth--;
+        CameraShake.Instance.shakeCamera(10f,.2f);
+        yield return new WaitForSeconds(hitRecoveryDuration);
+        GameManager.instance.playerInvinsibility = false;
+        playerAnimator.SetBool("IsInvincible", false);
+
+
     }
 }

@@ -5,8 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    [SerializeField] public int playerHealth = 0;
-
+    [SerializeField] public int playerHealth = 3;
+    [SerializeField] public bool playerIsHit;
+    [SerializeField] public bool playerInvinsibility;
     [SerializeField] public int activeCamera = 0;
     [SerializeField] public int currentPlayerWeapon = 0;
     [SerializeField] public bool playerDied;
