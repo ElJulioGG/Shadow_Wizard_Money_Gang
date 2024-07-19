@@ -15,18 +15,19 @@ public class BulletSpawner : MonoBehaviour
     public float bulletLife = 1f;
     public float speed = 1f;
     public float RotationSpeed = 1f;
+    public float distanceBullet;
 
     [Header("Spawner Attributes")]
     [SerializeField] private SpawnerType spawnerType;
     [SerializeField] private float firingRate = 1f;
 
-
+    private GameObject player;
     private GameObject spawnedBullet;
     private float timer = 0f;
     // Start is called before the first frame update
     void Start()
     {
-       
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
 
@@ -35,9 +36,14 @@ public class BulletSpawner : MonoBehaviour
     {
         timer += Time.deltaTime;
         if(spawnerType == SpawnerType.Spin) transform.eulerAngles = new Vector3(0f,0f,transform.eulerAngles.z+RotationSpeed);
-        if (timer >= firingRate) {
-            Fire();
-            timer = 0;
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        if (distance <= distanceBullet)
+        {
+            if (timer >= firingRate)
+            {
+                Fire();
+                timer = 0;
+            }
         }
     }
 

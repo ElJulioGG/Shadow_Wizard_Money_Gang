@@ -134,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4563004330777629996, guid: b85077c615bd9cc449c01ecf746e8f78, type: 3}
   bulletPos: {fileID: 3266425254784754173}
+  distanceBullet: 6
   shootType: 2
   firingRate: 2
 --- !u!114 &4628728024835245714
@@ -151,6 +152,8 @@ MonoBehaviour:
   speed: 2
   distanceBetween: 6
   maxDistance: 10
+  maxdistance: 3
+  range: 0.5
 --- !u!50 &2155920112069083926
 Rigidbody2D:
   serializedVersion: 4

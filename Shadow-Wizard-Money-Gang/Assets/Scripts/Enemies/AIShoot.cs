@@ -8,13 +8,19 @@ public class AIShoot : MonoBehaviour
     public float speed;
     public float distanceBetween;
     public float maxDistance;
-
-
     private float distance;
+
+    //Wandering
+    [SerializeField]
+    float maxdistance;
+    [SerializeField]
+    float range;
+
+    Vector2 waypoint;
     void Start()
     {
-
         player = GameObject.FindGameObjectWithTag("Player");
+        setnewdestination();
     }
 
     // Update is called once per frame
@@ -32,6 +38,17 @@ public class AIShoot : MonoBehaviour
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
 
+        //Wandering
+        if (distance > maxDistance)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, waypoint) < range)
+            {
+                setnewdestination();
+            }
+        }
+        
+
         //Vision
         if(distance > distanceBetween && distance < maxDistance)
         {
@@ -40,5 +57,10 @@ public class AIShoot : MonoBehaviour
             
         }
 
+    }
+
+    void setnewdestination()
+    {
+        waypoint = new Vector2(Random.Range(-maxdistance, maxdistance), Random.Range(-maxdistance, maxdistance));
     }
 }

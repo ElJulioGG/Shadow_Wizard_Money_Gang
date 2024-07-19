@@ -6,12 +6,15 @@ public class EnemyShooting : MonoBehaviour
 {
     enum ShootType { Single, QuadShot, OctaShot }
     //enum SpawnerType { Straight, Spin }
+
+    [Header("Bullet Attributes")]
     public GameObject bullet;
     public Transform bulletPos;
+    public float distanceBullet;
 
     private float timer = 0f;
     private GameObject player;
-
+    
 
     //public float RotationSpeed = 1f;
 
@@ -34,7 +37,7 @@ public class EnemyShooting : MonoBehaviour
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
         //if (spawnerType == SpawnerType.Spin) transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + RotationSpeed);
-        if (distance <=6)
+        if (distance <=distanceBullet)
         {
             timer += Time.deltaTime;
 

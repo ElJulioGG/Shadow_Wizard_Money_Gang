@@ -50,6 +50,9 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 2
   distanceBetween: 6
+  maxDistance: 10
+  maxdistance: 3
+  range: 0.5
 --- !u!114 &2764091599904503172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +69,7 @@ MonoBehaviour:
   bulletLife: 6
   speed: 3
   RotationSpeed: 0.5
+  distanceBullet: 6
   spawnerType: 2
   firingRate: 0.1
 --- !u!212 &2924121542592900200
