@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 696167152528326853}
   - component: {fileID: -4535246016634003807}
   - component: {fileID: 2006035299669320655}
+  - component: {fileID: 1154973744502006092}
   m_Layer: 0
   m_Name: Fire Homing Bullet
   m_TagString: Untagged
@@ -206,3 +207,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.19817491, y: 0.39945853}
   m_EdgeRadius: 0
+--- !u!114 &1154973744502006092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4563004330777629996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9effba4d909afe4296d8e4b075fcaa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
