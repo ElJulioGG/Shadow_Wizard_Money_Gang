@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 97098c270cf356c46990f8818412bcde, type: 3}
-  m_Color: {r: 0.13811947, g: 0, b: 0.6415094, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.17893267, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: -4535246016634003807}
   - component: {fileID: 2006035299669320655}
   m_Layer: 0
-  m_Name: Fire Bullet
+  m_Name: Fire Homing Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletLife: 6
   speed: 4
-  modality: 1
+  modality: 0
 --- !u!61 &2006035299669320655
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -4,12 +4,23 @@ using UnityEngine;
 
 public class EnemyShooting : MonoBehaviour
 {
-
+    enum ShootType { Single, QuadShot, OctaShot }
+    //enum SpawnerType { Straight, Spin }
     public GameObject bullet;
     public Transform bulletPos;
 
-    private float timer;
+    private float timer = 0f;
     private GameObject player;
+
+
+    //public float RotationSpeed = 1f;
+
+    [Header("Type")]
+    [SerializeField] private ShootType shootType;
+    [SerializeField] private float firingRate = 1f;
+    //[SerializeField] private SpawnerType spawnerType;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +33,12 @@ public class EnemyShooting : MonoBehaviour
         timer += Time.deltaTime;
 
         float distance = Vector2.Distance(transform.position, player.transform.position);
-
+        //if (spawnerType == SpawnerType.Spin) transform.eulerAngles = new Vector3(0f, 0f, transform.eulerAngles.z + RotationSpeed);
         if (distance <=6)
         {
             timer += Time.deltaTime;
 
-            if (timer > 3)
+            if (timer >= firingRate)
             {
                 timer = 0;
                 shoot();
@@ -37,10 +48,32 @@ public class EnemyShooting : MonoBehaviour
 
     void shoot()
     {
-        Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(0,Vector3.forward));
-        Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(90, Vector3.forward));
-        Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(180, Vector3.forward));
-        Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(270, Vector3.forward));
+        if(shootType == ShootType.Single)
+        {
+            Instantiate(bullet, bulletPos.position, Quaternion.identity);
+        }
+
+        if (shootType == ShootType.QuadShot)
+        {
+            Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(0, Vector3.forward));
+            Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(90, Vector3.forward));
+            Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(180, Vector3.forward));
+            Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(270, Vector3.forward));
+        }
+
+        if (shootType == ShootType.OctaShot)
+        {
+            
+                Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(0, Vector3.forward));
+                Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(45, Vector3.forward));
+                Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(90, Vector3.forward));
+                Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(135, Vector3.forward));
+                Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(180, Vector3.forward));
+                Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(225, Vector3.forward));
+                Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(270, Vector3.forward));
+                Instantiate(bullet, bulletPos.position, Quaternion.AngleAxis(315, Vector3.forward));
+
+        }
     }
 
 

@@ -103,6 +103,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4563004330777629996, guid: b85077c615bd9cc449c01ecf746e8f78, type: 3}
   bulletPos: {fileID: 8760690257156125921}
+  shootType: 0
+  firingRate: 1
 --- !u!114 &1512117336486187918
 MonoBehaviour:
   m_ObjectHideFlags: 0

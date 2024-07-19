@@ -13,6 +13,7 @@ public class AIShoot : MonoBehaviour
     private float distance;
     void Start()
     {
+
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
