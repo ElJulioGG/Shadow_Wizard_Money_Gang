@@ -35,11 +35,7 @@ public class ItemWorld : MonoBehaviour
 
     public void DestroySelf()
     {
-<<<<<<< Updated upstream
-        //Destroy(gameObject);
-=======
-        Destroy(gameObject); //verificar que no se añadan al inventario de manera automatica al iniciar
->>>>>>> Stashed changes
+        //Destroy(gameObject); //verificar que no se añadan al inventario de manera automatic
     }
 
 }
