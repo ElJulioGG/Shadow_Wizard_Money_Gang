@@ -35,7 +35,7 @@ public class ItemWorld : MonoBehaviour
 
     public void DestroySelf()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 
 }

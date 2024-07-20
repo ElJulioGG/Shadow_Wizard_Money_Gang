@@ -24,7 +24,7 @@ public class InventoryManager
         AddItem(new Item { itemType = Item.ItemType.SpiderEye, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.Crystal, amount = 1 });
         AddItem(new Item { itemType = Item.ItemType.ShadowHorn, amount = 1 });
-        
+
         //Testing
         //Debug.Log(itemList.Count);
     }
@@ -34,7 +34,7 @@ public class InventoryManager
         itemList.Add(item);
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
     }
-     
+
     public List<Item> GetItemList()
     {
         return itemList;
