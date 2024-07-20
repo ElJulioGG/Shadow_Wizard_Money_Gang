@@ -39,7 +39,7 @@ public class EnemyDamage : MonoBehaviour
             
         }
     }
-  
+    
     private void pushAwayFromPlayer(float pushForce)
     {
         if (player != null && rb != null)

@@ -71,9 +71,9 @@ MonoBehaviour:
   bulletLife: 6
   speed: 3
   RotationSpeed: 0.5
-  distanceBullet: 6
+  distanceBullet: 20
   spawnerType: 2
-  firingRate: 0.1
+  firingRate: 0.0000001
 --- !u!212 &2924121542592900200
 SpriteRenderer:
   m_ObjectHideFlags: 0

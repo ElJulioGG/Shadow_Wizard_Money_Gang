@@ -104,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4563004330777629996, guid: abeb4d23ac35db249a1b0d74c36bd5a3, type: 3}
   bulletPos: {fileID: 8760690257156125921}
-  distanceBullet: 5
+  distanceBullet: 10
   shootType: 0
   firingRate: 1
 --- !u!114 &1512117336486187918
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  distanceBetween: 6
-  maxDistance: 5
-  maxdistance: 3
+  distanceBetween: 10
+  maxDistance: 10
+  maxdistance: 10
   range: 0.5
 --- !u!70 &3696377651298461794
 CapsuleCollider2D:
