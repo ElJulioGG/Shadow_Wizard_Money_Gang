@@ -6,14 +6,14 @@ public class AIChase : MonoBehaviour
 {
     private GameObject player;
     public float speed;
-    public float distanceBetween;
+    public float VisionRange;
     private float distance;
 
     //Wandering
     [SerializeField]
-    float maxdistance;
+    float WanderingArea;
     [SerializeField]
-    float range;
+    float StepsInWanderingArea;
 
     Vector2 waypoint;
     void Start()
@@ -32,14 +32,14 @@ public class AIChase : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         //Chase
-            if (distance < distanceBetween)
+            if (distance < VisionRange)
             {
                 transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             }
             else{//wandering
                 transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
-                if (Vector2.Distance(transform.position, waypoint) < range)
+                if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
                 {
                 setnewdestination();
                 }
@@ -48,7 +48,7 @@ public class AIChase : MonoBehaviour
 
     void setnewdestination()
     {
-        waypoint = new Vector2(transform.position.x + Random.Range(-maxdistance, maxdistance), transform.position.y + Random.Range(-maxdistance, maxdistance));
+        waypoint = new Vector2(transform.position.x + Random.Range(-WanderingArea, WanderingArea), transform.position.y + Random.Range(-WanderingArea, WanderingArea));
 
     }
 }

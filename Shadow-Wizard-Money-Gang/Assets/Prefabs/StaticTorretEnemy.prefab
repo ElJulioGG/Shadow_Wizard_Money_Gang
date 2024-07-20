@@ -50,7 +50,10 @@ MonoBehaviour:
   bulletLife: 6
   speed: 3
   RotationSpeed: 0.5
-  distanceBullet: 10
+
+
+  distanceBullet: 6
+
   spawnerType: 1
   firingRate: 0.3
 --- !u!212 &4735176765800388472
