@@ -64,9 +64,10 @@ public class AIShoot : MonoBehaviour
         waypoint = new Vector2(transform.position.x + Random.Range(-WanderingArea, WanderingArea), transform.position.y + Random.Range(-WanderingArea, WanderingArea));
  
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Wall"))
+        if (collision.gameObject.tag == "Wall")
         {
             if (transform.position.x > 0 && transform.position.y > 0)
             {

@@ -6,7 +6,8 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     public float enemyHealth = 20;
-
+    public bool atack1Inmune = false;
+    public bool atack2Inmune = false;
     public GameObject damageParticlesPrefab;
     public float pushForceMelee= 50f; // Add this line
     public float pushForceBullet = 25f; // Add this line
@@ -29,19 +30,26 @@ public class EnemyDamage : MonoBehaviour
     {
         if(collision.tag == "Atack1")
         {
-            enemyHealth = enemyHealth - GameManager.instance.playerDamage1;
-            pushAwayFromPlayer(pushForceMelee);
+            if (!atack1Inmune)
+            {
+                print("lol");
+                enemyHealth = enemyHealth - GameManager.instance.playerDamage1;
+                pushAwayFromPlayer(pushForceMelee);
+            }
         }
-        if (collision.tag == "Atack2")
+        if (collision.tag == "Atack2"&& !atack2Inmune)
         {
-            enemyHealth = enemyHealth - GameManager.instance.playerDamage2;
-            pushAwayFromPlayer(pushForceBullet);
-            
+            if (!atack2Inmune)
+            {
+                enemyHealth = enemyHealth - GameManager.instance.playerDamage2;
+                pushAwayFromPlayer(pushForceBullet);
+            }
         }
     }
     
     private void pushAwayFromPlayer(float pushForce)
     {
+        CameraShake.Instance.shakeCamera(2f, .2f);
         if (player != null && rb != null)
         {
             Vector2 pushDirection = (transform.position - player.transform.position).normalized;
