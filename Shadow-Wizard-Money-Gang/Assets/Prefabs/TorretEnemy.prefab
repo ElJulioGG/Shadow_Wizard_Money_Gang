@@ -49,9 +49,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 838ada75bf6f4544baa4db317936190f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 0.1
   FacingThePlayerDistance: 4.5
-  VisionRange: 6
+  VisionRange: 8
   WanderingArea: 3
   StepsInWanderingArea: 0.5
 --- !u!114 &2764091599904503172
@@ -69,12 +69,10 @@ MonoBehaviour:
   bullet: {fileID: 8468864433871609128, guid: 0f9e7f912a2cef74a865a3b90bde5cc3, type: 3}
   bulletLife: 6
   speed: 3
-  RotationSpeed: 0.5
-
-  distanceBullet: 4.5
-
+  RotationSpeed: 0.1
+  distanceBullet: 8
   spawnerType: 2
-  firingRate: 0.0000001
+  firingRate: 0.1
 --- !u!212 &2924121542592900200
 SpriteRenderer:
   m_ObjectHideFlags: 0

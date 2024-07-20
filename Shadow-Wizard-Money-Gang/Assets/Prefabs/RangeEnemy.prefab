@@ -104,9 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 4563004330777629996, guid: abeb4d23ac35db249a1b0d74c36bd5a3, type: 3}
   bulletPos: {fileID: 8760690257156125921}
-
-  distanceBullet: 5.5
-
+  distanceBullet: 6
   shootType: 0
   firingRate: 1
 --- !u!114 &1512117336486187918
@@ -122,12 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-
   FacingThePlayerDistance: 5.5
   VisionRange: 8
   WanderingArea: 3
   StepsInWanderingArea: 0.5
-
 --- !u!70 &3696377651298461794
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -202,7 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2d09602740f8c44bbf9e4a1bbe3aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 40
+  enemyHealth: 20
   damageParticlesPrefab: {fileID: 0}
   pushForceMelee: 125
   pushForceBullet: 60

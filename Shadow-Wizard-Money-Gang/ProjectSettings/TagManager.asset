@@ -7,6 +7,7 @@ TagManager:
   - Atack1
   - TutorialRespawn
   - Atack2
+  - Wall
   layers:
   - Default
   - TransparentFX

@@ -49,13 +49,10 @@ MonoBehaviour:
   bullet: {fileID: 8468864433871609128, guid: f6fd4de76e40a79408deef2205a95133, type: 3}
   bulletLife: 6
   speed: 3
-  RotationSpeed: 0.5
-
-
-  distanceBullet: 6
-
+  RotationSpeed: 0
+  distanceBullet: 10
   spawnerType: 1
-  firingRate: 0.3
+  firingRate: 0.2
 --- !u!212 &4735176765800388472
 SpriteRenderer:
   m_ObjectHideFlags: 0

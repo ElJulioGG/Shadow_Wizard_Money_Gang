@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  VisionRange: 0
+  VisionRange: 5
   WanderingArea: 3
   StepsInWanderingArea: 0.5
 --- !u!212 &8135034814225496182
@@ -267,11 +267,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2d09602740f8c44bbf9e4a1bbe3aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 100
+  enemyHealth: 20
   damageParticlesPrefab: {fileID: 0}
   pushForceMelee: 50
   pushForceBullet: 25
-
 --- !u!114 &6306327741907083561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,5 +283,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21702440dfb57bd4f8144f0edc4ee38b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
-
