@@ -81,9 +81,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  distanceBetween: 1
-  maxdistance: 99
-  range: 99
+  VisionRange: 0
+  WanderingArea: 3
+  StepsInWanderingArea: 0.5
 --- !u!212 &8135034814225496182
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -222,4 +222,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyHealth: 100
   damageParticlesPrefab: {fileID: 0}
-  pushForce: 70
+  pushForceMelee: 50
+  pushForceBullet: 25

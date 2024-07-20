@@ -150,10 +150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  distanceBetween: 6
-  maxDistance: 10
-  maxdistance: 3
-  range: 0.5
+  FacingThePlayerDistance: 6
+  VisionRange: 8
+  WanderingArea: 3
+  StepsInWanderingArea: 0.5
 --- !u!50 &2155920112069083926
 Rigidbody2D:
   serializedVersion: 4

@@ -6,15 +6,15 @@ public class AIShoot : MonoBehaviour
 {
     private GameObject player;
     public float speed;
-    public float distanceBetween;
-    public float maxDistance;
+    public float FacingThePlayerDistance;
+    public float VisionRange;
     private float distance;
 
     //Wandering
     [SerializeField]
-    float maxdistance;
+    float WanderingArea;
     [SerializeField]
-    float range;
+    float StepsInWanderingArea;
 
     Vector2 waypoint;
     void Start()
@@ -33,16 +33,16 @@ public class AIShoot : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         
         //Preferencia estetica
-        if(distance < distanceBetween)
+        if(distance < FacingThePlayerDistance)
         {
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
 
         //Wandering
-        if (distance > maxDistance)
+        if (distance > VisionRange)
         {
             transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, waypoint) < range)
+            if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
             {
                 setnewdestination();
             }
@@ -50,7 +50,7 @@ public class AIShoot : MonoBehaviour
         
 
         //Vision
-        if(distance > distanceBetween && distance < maxDistance)
+        if(distance > FacingThePlayerDistance && distance < VisionRange)
         {
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
@@ -61,7 +61,7 @@ public class AIShoot : MonoBehaviour
 
     void setnewdestination()
     {
-        waypoint = new Vector2(transform.position.x + Random.Range(-maxdistance, maxdistance), transform.position.y + Random.Range(-maxdistance, maxdistance));
+        waypoint = new Vector2(transform.position.x + Random.Range(-WanderingArea, WanderingArea), transform.position.y + Random.Range(-WanderingArea, WanderingArea));
  
     }
 }
