@@ -13,7 +13,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float hitRecoveryDuration = 0.5f;
     [SerializeField] private UI_Inventory uiInventory; //Inventory stuff
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 
     public Animator playerAnimator;
     public bool isDashing;

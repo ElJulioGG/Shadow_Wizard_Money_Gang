@@ -31,7 +31,7 @@ public class UI_Inventory : MonoBehaviour
     }
 
 
-    private void RefreshInventoryItems()
+    private void RefreshInventoryItems() //Inventory stuff
     {
         foreach (Transform child in itemSlotContainer)
         {
@@ -50,6 +50,7 @@ public class UI_Inventory : MonoBehaviour
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
             //image.sprite = item.GetSprite(); //verificar
+            //Debug.Log(image); //verificar que es "image"
             x++;
             if (x > 5) //5 items in total so far
             {
