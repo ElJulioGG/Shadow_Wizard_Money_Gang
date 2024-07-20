@@ -61,6 +61,7 @@ public class AIShoot : MonoBehaviour
 
     void setnewdestination()
     {
-        waypoint = new Vector2(Random.Range(-maxdistance, maxdistance), Random.Range(-maxdistance, maxdistance));
+        waypoint = new Vector2(transform.position.x + Random.Range(-maxdistance, maxdistance), transform.position.y + Random.Range(-maxdistance, maxdistance));
+ 
     }
 }
