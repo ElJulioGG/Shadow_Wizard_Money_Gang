@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.playerIsHit = false;
         GameManager.instance.playerInvinsibility = true;
         GameManager.instance.playerHealth--;
-        CameraShake.Instance.shakeCamera(4f,.2f);
+        CameraShake.Instance.shakeCamera(2f,.3f);
         yield return new WaitForSeconds(hitRecoveryDuration);
         GameManager.instance.playerInvinsibility = false;
         playerAnimator.SetBool("IsInvincible", false);

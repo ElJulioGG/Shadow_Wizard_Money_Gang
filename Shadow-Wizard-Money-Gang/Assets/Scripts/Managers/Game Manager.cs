@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [SerializeField] public int playerHealth = 3;
+    [SerializeField] public int playerDamage1 = 20;
+    [SerializeField] public int playerDamage2 = 10;
+
     [SerializeField] public bool playerIsHit;
     [SerializeField] public bool playerInvinsibility;
     [SerializeField] public int activeCamera = 0;
