@@ -55,4 +55,27 @@ public class AIMultyShot : MonoBehaviour
     {
         waypoint = new Vector2(transform.position.x + Random.Range(-WanderingArea, WanderingArea), transform.position.y + Random.Range(-WanderingArea, WanderingArea));
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Wall"))
+        {
+            if (transform.position.x > 0 && transform.position.y > 0)
+            {
+                waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+            }
+            if (transform.position.x < 0 && transform.position.y > 0)
+            {
+                waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+            }
+            if (transform.position.x > 0 && transform.position.y < 0)
+            {
+                waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+            }
+            if (transform.position.x < 0 && transform.position.y < 0)
+            {
+                waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+            }
+        }
+    }
 }

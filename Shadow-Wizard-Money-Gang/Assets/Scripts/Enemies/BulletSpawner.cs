@@ -14,12 +14,13 @@ public class BulletSpawner : MonoBehaviour
     public GameObject bullet;
     public float bulletLife = 1f;
     public float speed = 1f;
-    public float RotationSpeed = 1f;
+
     public float distanceBullet;
 
     [Header("Spawner Attributes")]
     [SerializeField] private SpawnerType spawnerType;
-    [SerializeField] private float firingRate = 1f;
+    [SerializeField] private float firingRate = 1f; 
+    public float RotationSpeed = 1f;
 
     private GameObject player;
     private GameObject spawnedBullet;
