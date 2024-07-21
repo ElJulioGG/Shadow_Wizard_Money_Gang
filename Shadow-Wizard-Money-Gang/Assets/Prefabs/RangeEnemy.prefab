@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6662183624327381060}
+  - component: {fileID: 7570693957816404200}
   - component: {fileID: 8003925810959334545}
-  - component: {fileID: 2946509749033441593}
   - component: {fileID: 1512117336486187918}
   - component: {fileID: 3696377651298461794}
   - component: {fileID: 5272528527306315274}
@@ -31,13 +31,35 @@ Transform:
   m_GameObject: {fileID: 3487863488874107029}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.24, y: 3.69, z: 0}
+  m_LocalPosition: {x: 0.34, y: 9.37, z: 0}
   m_LocalScale: {x: 0.796875, y: 0.68437505, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8760690257156125921}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7570693957816404200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3487863488874107029}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a904401e1c75174c99c3bfc4509fcf2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPrefab: {fileID: 8468864433871609128, guid: 0f9e7f912a2cef74a865a3b90bde5cc3, type: 3}
+  burstCount: 1
+  projectilesPerBurst: 20
+  angleSpread: 359
+  startingDistance: 0.1
+  timeBetweenBursts: 0
+  restTime: 0.5
+  stagger: 1
+  oscillate: 1
+  distanceBullet: 6
 --- !u!212 &8003925810959334545
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,23 +112,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2946509749033441593
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3487863488874107029}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3068463d92445514cb9c1d1f3e4f6ed0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullet: {fileID: 4563004330777629996, guid: abeb4d23ac35db249a1b0d74c36bd5a3, type: 3}
-  bulletPos: {fileID: 8760690257156125921}
-  distanceBullet: 6
-  shootType: 0
-  firingRate: 1
 --- !u!114 &1512117336486187918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  FacingThePlayerDistance: 5.5
+  FacingThePlayerDistance: 6
   VisionRange: 8
   WanderingArea: 3
   StepsInWanderingArea: 0.5
@@ -153,7 +158,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -199,6 +204,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 20
+  atack1Inmune: 0
+  atack2Inmune: 0
   damageParticlesPrefab: {fileID: 0}
   pushForceMelee: 125
   pushForceBullet: 60

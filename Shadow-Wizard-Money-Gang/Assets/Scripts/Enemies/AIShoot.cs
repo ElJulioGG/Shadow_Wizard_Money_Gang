@@ -64,7 +64,7 @@ public class AIShoot : MonoBehaviour
         waypoint = new Vector2(transform.position.x + Random.Range(-WanderingArea, WanderingArea), transform.position.y + Random.Range(-WanderingArea, WanderingArea));
  
     }
-    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Wall")
@@ -87,4 +87,29 @@ public class AIShoot : MonoBehaviour
             }
         }
     }
+
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.tag == "Wall" )
+    //    {
+    //        if (transform.position.x > 0 && transform.position.y > 0)
+    //        {
+    //            waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+    //        }
+    //        if (transform.position.x < 0 && transform.position.y > 0)
+    //        {
+    //            waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+    //        }
+    //        if (transform.position.x > 0 && transform.position.y < 0)
+    //        {
+    //            waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+    //        }
+    //        if (transform.position.x < 0 && transform.position.y < 0)
+    //        {
+    //            waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+    //        }
+    //    }
+    //}
+
 }

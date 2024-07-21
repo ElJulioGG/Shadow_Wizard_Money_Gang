@@ -6,6 +6,7 @@ public class EnemyShooting : MonoBehaviour
 {
     enum ShootType { Single, QuadShot, OctaShot }
     //enum SpawnerType { Straight, Spin }
+    public EnemyShooter enemyshooter;
 
     [Header("Bullet Attributes")]
     public GameObject bullet;
@@ -42,9 +43,10 @@ public class EnemyShooting : MonoBehaviour
             timer += Time.deltaTime;
 
             if (timer >= firingRate)
-            {
+            { 
+                enemyshooter.Attack();
                 timer = 0;
-                shoot();
+                //shoot();
             }
         }
     }

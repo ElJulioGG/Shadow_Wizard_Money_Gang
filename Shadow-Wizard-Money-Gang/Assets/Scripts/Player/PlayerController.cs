@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         inventory = new InventoryManager(); //Inventory stuff
-        uiInventory.SetInventory(inventory); //Inventory stuff
+        //uiInventory.SetInventory(inventory); //Inventory stuff
 
         ItemWorld.SpawnItemWorld(new Vector3(0, 0), new Item { itemType = Item.ItemType.Sword, amount = 1 });
         ItemWorld.SpawnItemWorld(new Vector3(5, 0), new Item { itemType = Item.ItemType.GhastTear, amount = 1 });
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
             return;
         }
         Move();
-
+        
     }
 
     private void PlayerInput()
@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
     private void Move()
     {
         rb.MovePosition(rb.position + movement * (activeMoveSpeed * Time.fixedDeltaTime));
+
     }
 
     private IEnumerator Roll()

@@ -16,48 +16,48 @@ public class UI_Inventory : MonoBehaviour
         itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
     }
 
-    public void SetInventory(InventoryManager inventory)
-    {
-        this.inventory = inventory;
+    //public void SetInventory(InventoryManager inventory)
+    //{
+    //    this.inventory = inventory;
 
-        inventory.OnItemListChanged += Inventory_OnItemListChanged;
+    //    inventory.OnItemListChanged += Inventory_OnItemListChanged;
 
-        RefreshInventoryItems();
-    }
+    //    RefreshInventoryItems();
+    //}
 
-    private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
-    {
-        RefreshInventoryItems();
-    }
+    //private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
+    //{
+    //    RefreshInventoryItems();
+    //}
 
 
-    private void RefreshInventoryItems() //Inventory stuff
-    {
-        foreach (Transform child in itemSlotContainer)
-        {
-            if (child == itemSlotTemplate) continue;
-            Destroy(child.gameObject);
-        }
+    ////private void RefreshInventoryItems() //Inventory stuff
+    //{
+    //    foreach (Transform child in itemSlotContainer)
+    //    {
+    //        if (child == itemSlotTemplate) continue;
+    //        Destroy(child.gameObject);
+    //    }
 
-        int x = 0;
-        int y = 0;
-        float itemSlotCellSize = 15f;
-        foreach (Item item in inventory.GetItemList())
-        {
-            RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
-            itemSlotRectTransform.gameObject.SetActive(true);
+    //    int x = 0;
+    //    int y = 0;
+    //    float itemSlotCellSize = 15f;
+    //    foreach (Item item in inventory.GetItemList())
+    //    {
+    //        RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
+    //        itemSlotRectTransform.gameObject.SetActive(true);
 
-            itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
-            Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
-            //image.sprite = item.GetSprite(); //verificar
-            //Debug.Log(image); //verificar que es "image"
-            x++;
-            if (x > 5) //5 items in total so far
-            {
-                x = 0;
-                y++;
-            }
-        }
-    }
+    //        itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+    //        Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
+    //        //image.sprite = item.GetSprite(); //verificar
+    //        //Debug.Log(image); //verificar que es "image"
+    //        x++;
+    //        if (x > 5) //5 items in total so far
+    //        {
+    //            x = 0;
+    //            y++;
+    //        }
+    //    }
+    //}
 
 }
