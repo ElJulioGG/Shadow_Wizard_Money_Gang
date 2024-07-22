@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AIShoot : MonoBehaviour
 {
+
     private GameObject player;
     public float speed;
     public float FacingThePlayerDistance;
@@ -15,6 +16,7 @@ public class AIShoot : MonoBehaviour
     float WanderingArea;
     [SerializeField]
     float StepsInWanderingArea;
+
 
     Vector2 waypoint;
     void Start()
@@ -33,14 +35,17 @@ public class AIShoot : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         
         //Preferencia estetica
-        if(distance < FacingThePlayerDistance)
+        if(distance <= FacingThePlayerDistance)
         {
+
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+            
         }
 
         //Wandering
         if (distance > VisionRange)
         {
+
             transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
             if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
             {

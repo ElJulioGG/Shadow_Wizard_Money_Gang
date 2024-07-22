@@ -9,7 +9,6 @@ public class AIMultyShot : MonoBehaviour
     public float FacingThePlayerDistance;
     public float VisionRange;
     private float distance;
-
     //Wandering
     [SerializeField]
     float WanderingArea;
