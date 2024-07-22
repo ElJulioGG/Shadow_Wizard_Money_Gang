@@ -35,7 +35,10 @@ public class ItemWorld : MonoBehaviour
 
     public void DestroySelf()
     {
-        //Destroy(gameObject); //verificar que no se añadan al inventario de manera automatic
+        //Destroy(gameObject); //problema con el jugador,
+                               //por algun motivo este tiene un
+                               //collider muy grande y agarra los
+                               //objetos de manera automatica al iniciar?
     }
 
 }
