@@ -49,7 +49,7 @@ public class UI_Inventory : MonoBehaviour
 
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
             Image image = itemSlotRectTransform.Find("image").GetComponent<Image>();
-            image.sprite = item.GetSprite(); //verificar
+            image.sprite = item.GetSprite();
             
             //El "ProyectileColider" del Player afecta en el recojo de los objetos
             //ya que hace que cuente como 2 recogidas en vez de una

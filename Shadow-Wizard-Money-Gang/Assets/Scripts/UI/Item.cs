@@ -32,4 +32,20 @@ public class Item
         }
     }
 
+    public bool IsStackable()
+    {
+        switch (itemType)
+        {
+            default:
+                case ItemType.Sword: return false;
+                case ItemType.GhastTear:return true;
+                case ItemType.SpiderEye:return true;
+                case ItemType.Crystal:return true;  
+                case ItemType.ShadowHorn:return true;
+        }
+    }
+
+
+
+
 }
