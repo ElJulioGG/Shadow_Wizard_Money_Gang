@@ -6,11 +6,13 @@ public class PlayerAtack2 : MonoBehaviour
 {
     //public GameObject spawnParticles;
     public GameObject Player;
+    public Rigidbody2D playerRb2D;
     private Camera mainCam;
     private Vector3 mousePos;
     public GameObject bullet;
     public Transform bulletTransform;
     public bool canFire;
+    public float recoil;
     public float timer;
     public float timerBetweenFiring;
     [SerializeField] public int ammo = 999;
@@ -49,6 +51,10 @@ public class PlayerAtack2 : MonoBehaviour
             canFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
             ammo--;
+            Vector2 recoilDirection = -direction.normalized;
+            playerRb2D.AddForce(recoilDirection * recoil, ForceMode2D.Force);
+            Debug.Log("Recoil applied: " + (recoilDirection * 200));
+
         }
         newPosition = new Vector3(Player.transform.position.x + offsetX, Player.transform.position.y + offsetY, Player.transform.position.z + offsetZ);
         gameObject.transform.position = newPosition;
@@ -56,6 +62,7 @@ public class PlayerAtack2 : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
+      
     }
     private void OnEnable()
     {

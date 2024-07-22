@@ -8,6 +8,8 @@ TagManager:
   - TutorialRespawn
   - Atack2
   - Wall
+  - Bullet
+  - Melee
   layers:
   - Default
   - TransparentFX

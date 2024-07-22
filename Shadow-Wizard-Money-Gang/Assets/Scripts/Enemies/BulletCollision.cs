@@ -12,5 +12,6 @@ public class BulletCollision : MonoBehaviour
             GameManager.instance.playerIsHit = true;
             Destroy(this.gameObject);
         }
+
     }
 }

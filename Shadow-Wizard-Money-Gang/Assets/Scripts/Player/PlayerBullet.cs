@@ -31,6 +31,11 @@ public class PlayerBullet : MonoBehaviour
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
         Invoke("destroyEvent", destroyTime); ;
+
+        Vector2 recoilDirection = -new Vector2(direction.x, direction.y).normalized;
+        playerRb.AddForce(recoilDirection * magnitude, ForceMode2D.Impulse);
+
+
     }
 
     // Update is called once per frame
@@ -56,7 +61,7 @@ public class PlayerBullet : MonoBehaviour
                 Player.transform.position = gameObject.transform.position;
                 print("Yup");
                 //AudioManager.instance.PlaySfx("PearlLand");
-                playerRb.AddForce(Vector2.up * magnitude, ForceMode2D.Impulse);
+                
             }
             destroyEvent();
            ;

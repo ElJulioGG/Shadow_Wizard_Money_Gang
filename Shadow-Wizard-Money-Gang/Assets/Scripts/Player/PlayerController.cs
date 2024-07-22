@@ -37,11 +37,11 @@ public class PlayerController : MonoBehaviour
         inventory = new InventoryManager(); //Inventory stuff
         //uiInventory.SetInventory(inventory); //Inventory stuff
 
-        ItemWorld.SpawnItemWorld(new Vector3(0, 0), new Item { itemType = Item.ItemType.Sword, amount = 1 });
-        ItemWorld.SpawnItemWorld(new Vector3(5, 0), new Item { itemType = Item.ItemType.GhastTear, amount = 1 });
-        ItemWorld.SpawnItemWorld(new Vector3(10, 0), new Item { itemType = Item.ItemType.SpiderEye, amount = 1 });
-        ItemWorld.SpawnItemWorld(new Vector3(15, 0), new Item { itemType = Item.ItemType.Crystal, amount = 1 });
-        ItemWorld.SpawnItemWorld(new Vector3(20, 0), new Item { itemType = Item.ItemType.ShadowHorn, amount = 1 });
+       // ItemWorld.SpawnItemWorld(new Vector3(0, 0), new Item { itemType = Item.ItemType.Sword, amount = 1 });
+       // ItemWorld.SpawnItemWorld(new Vector3(5, 0), new Item { itemType = Item.ItemType.GhastTear, amount = 1 });
+       // ItemWorld.SpawnItemWorld(new Vector3(10, 0), new Item { itemType = Item.ItemType.SpiderEye, amount = 1 });
+        //ItemWorld.SpawnItemWorld(new Vector3(15, 0), new Item { itemType = Item.ItemType.Crystal, amount = 1 });
+        //ItemWorld.SpawnItemWorld(new Vector3(20, 0), new Item { itemType = Item.ItemType.ShadowHorn, amount = 1 });
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
