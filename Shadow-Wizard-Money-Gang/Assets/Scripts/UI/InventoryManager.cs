@@ -2,14 +2,19 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeMonkey.Utils;
 
 public class InventoryManager
 {
     public event EventHandler OnItemListChanged;
+    
     private List<Item> itemList;
 
-    public InventoryManager()
+    private Action<Item> useItemAction;
+
+    public InventoryManager(Action<Item> useItemAction)
     {
+        this.useItemAction = useItemAction;
         itemList = new List<Item>();
 
         //Current Item list (general)
@@ -32,7 +37,7 @@ public class InventoryManager
 
     public void AddItem(Item item)
     {
-        if (item.IsStackable())
+        if (item.IsStackable()) //Error con el pfItemWorld/ItemWorld al activar
         {
             bool itemAlreadyInInventory = false;
             foreach (Item inventoryItem in itemList)
@@ -53,6 +58,36 @@ public class InventoryManager
             itemList.Add(item);
         }
         OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void RemoveItem(Item item)
+    {
+        if (item.IsStackable())
+        {
+            Item itemInInventory = null;
+            foreach (Item inventoryItem in itemList)
+            {
+                if (inventoryItem.itemType == item.itemType)
+                {
+                    inventoryItem.amount -= item.amount;
+                    itemInInventory = inventoryItem;
+                }
+            }
+            if (itemInInventory != null && itemInInventory.amount <= 0)
+            {
+                itemList.Remove(itemInInventory);
+            }
+        }
+        else
+        {
+            itemList.Remove(item);
+        }
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void UseItem(Item item)
+    {
+        useItemAction(item);
     }
 
     public List<Item> GetItemList()

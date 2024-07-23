@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using CodeMonkey.Utils;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,24 +26,28 @@ public class PlayerController : MonoBehaviour
     //Inventory stuff
     private InventoryManager inventory;
 
+    //Player pos stuff
     private void Start()
     {
         activeMoveSpeed = moveSpeed;
     }
+    
+    //Player pos stuff
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
+    
     private void Awake()
     {
         playerControls = new PlayerControls();
         rb = GetComponent<Rigidbody2D>();
 
-        inventory = new InventoryManager(); //Inventory stuff
+        inventory = new InventoryManager(UseItem); //Inventory stuff
+        uiInventory.SetPlayer(this); //Drop item stuff
         uiInventory.SetInventory(inventory); //Inventory stuff
 
-
-       // ItemWorld.SpawnItemWorld(new Vector3(0, 0), new Item { itemType = Item.ItemType.Sword, amount = 1 });
-       // ItemWorld.SpawnItemWorld(new Vector3(5, 0), new Item { itemType = Item.ItemType.GhastTear, amount = 1 });
-       // ItemWorld.SpawnItemWorld(new Vector3(10, 0), new Item { itemType = Item.ItemType.SpiderEye, amount = 1 });
-
-        //Añadir los items en el suelo
+        //Añadir los items en el suelo (usar el editor)
         //ItemWorld.SpawnItemWorld(new Vector3(0, 0),  new Item { itemType = Item.ItemType.Sword, amount = 1 });
         //ItemWorld.SpawnItemWorld(new Vector3(5, 0),  new Item { itemType = Item.ItemType.GhastTear, amount = 1 });
         //ItemWorld.SpawnItemWorld(new Vector3(10, 0), new Item { itemType = Item.ItemType.SpiderEye, amount = 1 });
@@ -55,8 +60,30 @@ public class PlayerController : MonoBehaviour
         ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
         if (itemWorld != null) {
             //Touching Item
-            inventory.AddItem(itemWorld.GetItem());
+            inventory.AddItem(itemWorld.GetItem()); //Error con el pfItemWorld/ItemWorld al activar
             itemWorld.DestroySelf();
+        }
+    }
+
+    private void UseItem(Item item)
+    {
+        switch (item.itemType)
+        {
+            case Item.ItemType.GhastTear:
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.GhastTear, amount = 1 });
+                break;
+            
+            case Item.ItemType.SpiderEye:
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.SpiderEye, amount = 1 });
+                break;
+            
+            case Item.ItemType.Crystal:
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.Crystal, amount = 1 });
+                break;
+            
+            case Item.ItemType.ShadowHorn:
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.ShadowHorn, amount = 1 });
+                break;
         }
     }
 
