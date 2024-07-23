@@ -39,6 +39,7 @@ public class InventoryManager
     {
         if (item.IsStackable()) //Error con el pfItemWorld/ItemWorld al activar
         {
+            //Debug.Log("pfItemWorld");
             bool itemAlreadyInInventory = false;
             foreach (Item inventoryItem in itemList)
             {

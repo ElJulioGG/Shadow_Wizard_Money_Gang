@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void UseItem(Item item)
+private void UseItem(Item item)
     {
         switch (item.itemType)
         {
