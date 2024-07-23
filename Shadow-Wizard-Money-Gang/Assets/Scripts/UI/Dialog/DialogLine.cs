@@ -23,20 +23,46 @@ namespace DialogSystem
         [Header("Character Image")]
         [SerializeField] private Sprite charSprite;
         [SerializeField] private Image imageHolder;
+        private bool canClick = false;
+
+        private IEnumerator LineApear;
         private void Awake()
         {
            
-            textHolder = GetComponent<Text>();
-            textHolder.text = "";
+          
 
             imageHolder.sprite = charSprite;
             imageHolder.preserveAspect = true;
             
          
         }
-        private void Start()
+        private void OnEnable()
         {
-            StartCoroutine(WriteText(input, textHolder, textColor, textFont, delay, sound, delayBeetweenLines));
+            ResetLine();
+            LineApear = WriteText(input, textHolder, textColor, textFont, delay, sound, delayBeetweenLines);
+            StartCoroutine(LineApear);
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyUp(KeyCode.Space)&&canClick)
+            {
+                if(textHolder.text != input)
+                {
+                    StopCoroutine(LineApear);
+                    textHolder.text = input;                   
+                }
+                else
+                {
+                    finished = true;
+                }
+            }
+        }
+        private void ResetLine()
+        {
+            textHolder = GetComponent<Text>();
+            textHolder.text = "";
+            finished = false;
         }
     }
 

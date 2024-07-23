@@ -6,20 +6,33 @@ namespace DialogSystem
 {
     public class DialogHolder : MonoBehaviour
     {
-        private void Awake()
+        private bool dialogFinished;
+        private void OnEnable()
         {
             StartCoroutine(dialogSequence());
         }
         private IEnumerator dialogSequence()
         {
-            for (int i = 0; i < transform.childCount; i++)
+            if (!dialogFinished)
             {
-                Deactivate();
-                transform.GetChild(i).gameObject.SetActive(true);
-                yield return new WaitUntil(()=> transform.GetChild(i).GetComponent<DialogLine>().finished);
+                for (int i = 0; i < transform.childCount - 1 ; i++)
+                {
+                    Deactivate();
+                    transform.GetChild(i).gameObject.SetActive(true);
+                    yield return new WaitUntil(() => transform.GetChild(i).GetComponent<DialogLine>().finished);
+                }
             }
+            else
+            {
+                int index = transform.childCount - 1;
+                Deactivate();
+                transform.GetChild(index).gameObject.SetActive(true);
+                yield return new WaitUntil(() => transform.GetChild(index).GetComponent<DialogLine>().finished);
+            }
+            
             gameObject.SetActive(false);
-            ///ddd
+            dialogFinished = true;
+            GameManager.instance.playerIsInDialog = false;
         }
         private void Deactivate()
         {
@@ -27,6 +40,7 @@ namespace DialogSystem
             {
                 transform.GetChild(i).gameObject.SetActive(false);
             }
+            
         }
     }
    

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool playerCanInput = true;
     [SerializeField] public bool weaponChange = true;
     [SerializeField] public bool playerIsShadow = false;
+    [SerializeField] public bool playerIsInDialog = false;
+    [SerializeField] public bool playerCanDialog = false;
 
     [Header("Camera")]
     [SerializeField] public int activeCamera = 0;

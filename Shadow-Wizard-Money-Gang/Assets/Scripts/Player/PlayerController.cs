@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float hitRecoveryDuration = 0.5f;
     [SerializeField] private UI_Inventory uiInventory; //Inventory stuff
+    private NpcController npc;
 
 
     public static event Action OnPlayerDamaged;
@@ -98,19 +99,21 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (isDashing)
-        {
-            return;
-        }
+        if (!inDialogue()) { 
+            if (isDashing)
+            {
+                return;
+            }
 
-        PlayerInput();
-        if (Input.GetKeyDown(KeyCode.Space) && movement != Vector2.zero)
-        {
-            StartCoroutine(Roll());
-        }
-        if (GameManager.instance.playerIsHit)
-        {
-            StartCoroutine(HitRecovery());
+            PlayerInput();
+            if (Input.GetKeyDown(KeyCode.Space) && movement != Vector2.zero)
+            {
+                StartCoroutine(Roll());
+            }
+            if (GameManager.instance.playerIsHit)
+            {
+                StartCoroutine(HitRecovery());
+            }
         }
     }
 
@@ -158,5 +161,35 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.playerInvinsibility = false;
         playerAnimator.SetBool("IsInvincible", false);
     }
-    
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Npc")
+        {
+            GameManager.instance.playerCanDialog = true;
+            npc = collision.gameObject.GetComponent<NpcController>();
+            if(Input.GetKey(KeyCode.E))
+            {
+                GameManager.instance.playerIsInDialog = true;
+                npc.ActiveDialog();
+                
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        npc = null;
+        GameManager.instance.playerCanDialog = false;
+    }
+    private bool inDialogue()
+    {
+        if(npc!= null)
+        {
+            return npc.DialogActive();
+        }
+        else
+        {
+            return false;
+        }
+    }
+
 }

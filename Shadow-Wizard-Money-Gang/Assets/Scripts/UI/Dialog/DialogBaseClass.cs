@@ -6,7 +6,7 @@ namespace DialogSystem
 {
     public class DialogBaseClass : MonoBehaviour
     {
-        public bool finished { get; private set; }
+        public bool finished { get; protected set; }
         protected IEnumerator WriteText(string input, Text textHolder, Color textColor, Font textFont , float delay, AudioClip soundEffect, float delayBeetweenLines)
         {
             textHolder.color = textColor;
@@ -18,7 +18,7 @@ namespace DialogSystem
                 yield return new WaitForSeconds(delay);
             }
             //yield return new WaitForSeconds(delayBeetweenLines);
-            yield return new WaitUntil(()=>Input.anyKey);
+            yield return new WaitUntil(() => Input.GetKeyUp(KeyCode.E)); 
             finished = true;
         }
     }
