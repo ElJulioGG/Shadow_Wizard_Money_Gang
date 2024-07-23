@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Search;
@@ -14,6 +15,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float hitRecoveryDuration = 0.5f;
     [SerializeField] private UI_Inventory uiInventory; //Inventory stuff
+
+
+    public static event Action OnPlayerDamaged;
 
     public Animator playerAnimator;
     public bool isDashing;
@@ -149,10 +153,10 @@ public class PlayerController : MonoBehaviour
         GameManager.instance.playerInvinsibility = true;
         GameManager.instance.playerHealth--;
         CameraShake.Instance.shakeCamera(5f, .2f);
+        OnPlayerDamaged?.Invoke();
         yield return new WaitForSeconds(hitRecoveryDuration);
         GameManager.instance.playerInvinsibility = false;
         playerAnimator.SetBool("IsInvincible", false);
-
-
     }
+    
 }

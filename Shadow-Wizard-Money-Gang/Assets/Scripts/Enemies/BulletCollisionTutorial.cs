@@ -17,7 +17,7 @@ public class BulletCollisionTutorial : MonoBehaviour
         {
             player.transform.position = respawn.transform.position;
             GameManager.instance.playerIsHit = true;
-            GameManager.instance.playerHealth += 1;
+            GameManager.instance.playerHealth = GameManager.instance.playerMaxHealth;
             Destroy(this.gameObject);
         }
     }

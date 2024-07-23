@@ -12,6 +12,11 @@ public class BulletCollision : MonoBehaviour
             GameManager.instance.playerIsHit = true;
             Destroy(this.gameObject);
         }
+        if (collision.tag == "Wall")
+        {
+            
+            Destroy(this.gameObject);
+        }
 
     }
 }

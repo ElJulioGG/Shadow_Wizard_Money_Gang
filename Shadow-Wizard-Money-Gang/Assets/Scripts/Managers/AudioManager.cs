@@ -7,7 +7,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
-    public Sounds[] musicSounds, sfxSounds, FootStepsSounds, DoorSounds, UISounds;
+    public Sounds[] musicSounds, sfxSounds, FootStepsSounds, Sfx2Sounds, UISounds;
     public AudioSource musicSource, sfxSource, FootStepsSource, DoorSource, UISource;
 
     private void Awake()
@@ -66,9 +66,9 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlayDoor(string name)
+    public void PlaySfx2(string name)
     {
-        Sounds s = Array.Find(DoorSounds, x => x.name == name);
+        Sounds s = Array.Find(Sfx2Sounds, x => x.name == name);
         if (s == null)
         {
             Debug.Log("sound not found");
