@@ -3,17 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Atack1
-  - TutorialRespawn
-  - Atack2
-  - Wall
-<<<<<<< Updated upstream
-  - Bullet
-  - Melee
-=======
-  - Laser
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX

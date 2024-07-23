@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 using CodeMonkey.Utils;
 
 public class ItemWorld : MonoBehaviour
@@ -25,16 +26,27 @@ public class ItemWorld : MonoBehaviour
 
     private Item item;
     private SpriteRenderer spriteRenderer;
+    private TextMeshPro textMeshPro;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        textMeshPro = transform.Find("amountTextItemWorld").GetComponent<TextMeshPro>();
+
     }
 
     public void SetItem(Item item)
     {
         this.item = item;
         spriteRenderer.sprite = item.GetSprite();
+        if (item.amount > 1)
+        {
+            textMeshPro.SetText(item.amount.ToString());
+        }
+        else
+        {
+            textMeshPro.SetText("");
+        }
     }
 
     public Item GetItem()
@@ -48,6 +60,8 @@ public class ItemWorld : MonoBehaviour
                                //por algun motivo este tiene un
                                //collider muy grande y agarra los
                                //objetos de manera automatica al iniciar?
+                               //Arreglar ese problema para que
+                               //el click funcione
     }
 
 }
