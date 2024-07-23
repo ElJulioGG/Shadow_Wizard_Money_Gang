@@ -19,6 +19,7 @@ namespace DialogSystem
                 yield return new WaitUntil(()=> transform.GetChild(i).GetComponent<DialogLine>().finished);
             }
             gameObject.SetActive(false);
+            ///ddd
         }
         private void Deactivate()
         {
