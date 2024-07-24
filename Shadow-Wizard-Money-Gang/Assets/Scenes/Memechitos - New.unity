@@ -149,12 +149,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20173365}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 468.6, y: 236.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 55726716}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &20173368
 MonoBehaviour:
@@ -295,7 +295,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 20173366}
   - {fileID: 1698600054}
   - {fileID: 2047162585}
   m_Father: {fileID: 0}
@@ -4606,6 +4605,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2065850643}
   - component: {fileID: 2065850644}
+  - component: {fileID: 2065850645}
+  - component: {fileID: 2065850646}
+  - component: {fileID: 2065850647}
   m_Layer: 5
   m_Name: itemSlotTemplate
   m_TagString: Untagged
@@ -4656,6 +4658,43 @@ MonoBehaviour:
   hoverBehaviour_Move: 0
   hoverBehaviour_Move_Amount: {x: 0, y: 0}
   triggerMouseOutFuncOnClick: 0
+--- !u!114 &2065850645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065850642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c686db6a4b5543441a4db25a3c46f98b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 55726715}
+--- !u!114 &2065850646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065850642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558feb84726363f46821dbf9f0541ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!225 &2065850647
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2065850642}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2079213778
 GameObject:
   m_ObjectHideFlags: 0
@@ -4826,6 +4865,7 @@ SceneRoots:
   - {fileID: 623684815}
   - {fileID: 792672178}
   - {fileID: 1057356218}
+  - {fileID: 20173366}
   - {fileID: 55726716}
   - {fileID: 612662104}
   - {fileID: 557996584}

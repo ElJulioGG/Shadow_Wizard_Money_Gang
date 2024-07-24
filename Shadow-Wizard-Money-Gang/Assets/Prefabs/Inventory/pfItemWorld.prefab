@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 1127215396827329673}
   - component: {fileID: 3980276941360375505}
   - component: {fileID: 7824163613139358319}
+  - component: {fileID: -9084700117151612165}
   m_Layer: 0
   m_Name: pfItemWorld
   m_TagString: Untagged
@@ -356,3 +357,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c686db6a4b5543441a4db25a3c46f98b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+--- !u!225 &-9084700117151612165
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7013916852715716736}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
