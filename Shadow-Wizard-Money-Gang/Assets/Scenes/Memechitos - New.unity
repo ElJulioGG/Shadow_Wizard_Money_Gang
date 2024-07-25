@@ -457,7 +457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcde695485db92e4799e59f26b7e4fe2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pfItemWorld: {fileID: 0}
+  pfItemWorld: {fileID: 8869230028777714577, guid: 4205d96c740de084e9a327fa69400fc4, type: 3}
 --- !u!1 &179459976
 GameObject:
   m_ObjectHideFlags: 0
@@ -4288,7 +4288,7 @@ RectTransform:
   m_GameObject: {fileID: 1698600053}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1607445464}
@@ -4297,7 +4297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -414, y: -326}
+  m_AnchoredPosition: {x: -364, y: -418}
   m_SizeDelta: {x: -828, y: -374}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698600055
