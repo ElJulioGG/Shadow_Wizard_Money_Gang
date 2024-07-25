@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class AIChase : MonoBehaviour
@@ -8,7 +9,9 @@ public class AIChase : MonoBehaviour
     public float speed;
     public float VisionRange;
     private float distance;
+    //ublic float changePosSpeed;
 
+    private float timer=0f;
     //Wandering
     [SerializeField]
     float WanderingArea;
@@ -41,38 +44,50 @@ public class AIChase : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
                 if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
                 {
-                setnewdestination();
+                    setnewdestination();
                 }
             }
+            if(timer>= speed)
+            {
+            print("wws");
+                setnewdestination();
+                timer = 0;
+            }
+            timer += Time.deltaTime;
     }
-
     void setnewdestination()
     {
         waypoint = new Vector2(transform.position.x + Random.Range(-WanderingArea, WanderingArea), transform.position.y + Random.Range(-WanderingArea, WanderingArea));
-
     }
-
-    //private void OnCollisionEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Wall"))
-    //    {
-    //        if (transform.position.x > 0 && transform.position.y > 0)
-    //        {
-    //            waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
-    //        }
-    //        if (transform.position.x < 0 && transform.position.y > 0)
-    //        {
-    //            waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
-    //        }
-    //        if (transform.position.x > 0 && transform.position.y < 0)
-    //        {
-    //            waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
-    //        }
-    //        if (transform.position.x < 0 && transform.position.y < 0)
-    //        {
-    //            waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
-    //        }
-    //    }
-    //}
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Wall"))
+        {
+            print("wwzzz");
+            waypoint = new Vector2(Random.Range(-WanderingArea, WanderingArea), Random.Range(-WanderingArea, WanderingArea));
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        //if (collision.gameObject.tag == "Wall")
+        //{
+        //    if (transform.position.x > 0 && transform.position.y > 0)
+        //    {
+        //        waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+        //    }
+        //    if (transform.position.x < 0 && transform.position.y > 0)
+        //    {
+        //        waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+        //    }
+        //    if (transform.position.x > 0 && transform.position.y < 0)
+        //    {
+        //        waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+        //    }
+        //    if (transform.position.x < 0 && transform.position.y < 0)
+        //    {
+        //        waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
+        //    }
+        //}
+    }
 
 }

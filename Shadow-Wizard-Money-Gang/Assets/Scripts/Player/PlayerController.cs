@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         ItemWorld itemWorld = collider.GetComponent<ItemWorld>();
         if (itemWorld != null) {
             //Touching Item
-            inventory.AddItem(itemWorld.GetItem());
+           // inventory.AddItem(itemWorld.GetItem());
 
             itemWorld.DestroySelf();
         }
