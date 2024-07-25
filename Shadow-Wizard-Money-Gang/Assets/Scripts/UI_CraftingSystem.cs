@@ -35,7 +35,7 @@ public class UI_CraftingSystem : MonoBehaviour
     //    Transform itemTransform = Instantiate(pfItemWorld, itemContainer);
     //    RectTransform itemRectTransform = itemTransform.GetComponent<RectTransform>();
     //    itemRectTransform.anchoredPosition = slotTransformArray[x, y].GetComponent<RectTransform>().anchoredPosition;
-    //    itemTransform.GetComponent<UI_Item>().SetItem(item);
+    //    itemTransform.GetComponent<Item>().SetItem(item); //
     //}
     //
     //private void CreateItemOutput(Item item)
@@ -43,6 +43,6 @@ public class UI_CraftingSystem : MonoBehaviour
     //    Transform itemTransform = Instantiate(pfItemWorld, itemContainer);
     //    RectTransform itemRectTransform = itemTransform.GetComponent<RectTransform>();
     //    itemRectTransform.anchoredPosition = outputSlotTransform.GetComponent<RectTransform>().anchoredPosition;
-    //    itemTransform.GetComponent<UI_Item>().SetItem(item);
+    //    itemTransform.GetComponent<Item>().SetItem(item); //
     //}
 }
