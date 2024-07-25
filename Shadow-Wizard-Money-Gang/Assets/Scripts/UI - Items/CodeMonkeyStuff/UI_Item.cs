@@ -57,7 +57,7 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         //UI_ItemDrag.Instance.Hide();
 
         Debug.Log("OnEndDrag");
-        canvasGroup.alpha = 1f;
+        canvasGroup.alpha = 1f;  //
         canvasGroup.blocksRaycasts = true;
     }
 

@@ -140,7 +140,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 28cd643389c25de4eb77f49567812e47, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 469badac53f7eae45b9f88ec82233ba9, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -160,6 +160,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1038956791307416559}
   - component: {fileID: 7712699051368271553}
+  - component: {fileID: 1011703456662914481}
   m_Layer: 0
   m_Name: pfUI_Item
   m_TagString: Untagged
@@ -201,6 +202,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67cbbd1ec6786564597743de8324d78b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &1011703456662914481
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038956791307416558}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5034990462797332956
 GameObject:
   m_ObjectHideFlags: 0

@@ -29,24 +29,24 @@ public class UI_CraftingSystem : MonoBehaviour
 
         outputSlotTransform = transform.Find("outputSlot");
 
-        //CreateItem(0, 0, new Item { itemType = Item.ItemType.GhastTear });
-        //CreateItem(1, 2, new Item { itemType = Item.ItemType.Crystal });
-        //CreateItemOutput(new Item { itemType = Item.ItemType.Sword });
+        CreateItem(0, 0, new Item { itemType = Item.ItemType.GhastTear });
+        CreateItem(1, 2, new Item { itemType = Item.ItemType.Crystal });
+        CreateItemOutput(new Item { itemType = Item.ItemType.Sword });
     }
 
-    //private void CreateItem(int x, int y, Item item)
-    //{
-    //    Transform itemTransform = Instantiate(pfUI_Item, itemContainer);
-    //    RectTransform itemRectTransform = itemTransform.GetComponent<RectTransform>();
-    //    itemRectTransform.anchoredPosition = slotTransformArray[x, y].GetComponent<RectTransform>().anchoredPosition;
-    //    itemTransform.GetComponent<pfUI_Item>().SetItem(item); //
-    //}
+    private void CreateItem(int x, int y, Item item)
+    {
+        Transform itemTransform = Instantiate(pfUI_Item, itemContainer);
+        RectTransform itemRectTransform = itemTransform.GetComponent<RectTransform>();
+        itemRectTransform.anchoredPosition = slotTransformArray[x, y].GetComponent<RectTransform>().anchoredPosition;
+        itemTransform.GetComponent<UI_Item>().SetItem(item);
+    }
     
-    //private void CreateItemOutput(Item item)
-    //{
-    //    Transform itemTransform = Instantiate(pfUI_Item, itemContainer);
-    //    RectTransform itemRectTransform = itemTransform.GetComponent<RectTransform>();
-    //    itemRectTransform.anchoredPosition = outputSlotTransform.GetComponent<RectTransform>().anchoredPosition;
-    //    itemTransform.GetComponent<pfUI_Item>().SetItem(item); //
-    //}
+    private void CreateItemOutput(Item item)
+    {
+        Transform itemTransform = Instantiate(pfUI_Item, itemContainer);
+        RectTransform itemRectTransform = itemTransform.GetComponent<RectTransform>();
+        itemRectTransform.anchoredPosition = outputSlotTransform.GetComponent<RectTransform>().anchoredPosition;
+        itemTransform.GetComponent<UI_Item>().SetItem(item);
+    }
 }
