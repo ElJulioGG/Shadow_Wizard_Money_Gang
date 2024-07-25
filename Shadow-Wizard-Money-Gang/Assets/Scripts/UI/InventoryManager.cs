@@ -35,31 +35,31 @@ public class InventoryManager
         //Debug.Log(itemList.Count);
     }
 
-    //public void AddItem(Item item)
-    //{
-    //    if (item.IsStackable()) //Error con el pfItemWorld/ItemWorld al activar
-    //    {
-    //        //Debug.Log("pfItemWorld");
-    //        bool itemAlreadyInInventory = false;
-    //        foreach (Item inventoryItem in itemList)
-    //        {
-    //            if (inventoryItem.itemType == item.itemType)
-    //            {
-    //                inventoryItem.amount += item.amount;
-    //                itemAlreadyInInventory = true;
-    //            }
-    //        }
-    //        if (!itemAlreadyInInventory)
-    //        {
-    //            itemList.Add(item);
-    //        }
-    //    }
-    //    else
-    //    {
-    //        itemList.Add(item);
-    //    }
-    //    OnItemListChanged?.Invoke(this, EventArgs.Empty);
-    //}
+    public void AddItem(Item item)
+    {
+        if (item.IsStackable())
+        {
+            //Debug.Log("pfItemWorld");
+            bool itemAlreadyInInventory = false;
+            foreach (Item inventoryItem in itemList)
+            {
+                if (inventoryItem.itemType == item.itemType)
+                {
+                    inventoryItem.amount += item.amount;
+                    itemAlreadyInInventory = true;
+                }
+            }
+            if (!itemAlreadyInInventory)
+            {
+                itemList.Add(item);
+            }
+        }
+        else
+        {
+            itemList.Add(item);
+        }
+        OnItemListChanged?.Invoke(this, EventArgs.Empty);
+    }
 
     public void RemoveItem(Item item)
     {

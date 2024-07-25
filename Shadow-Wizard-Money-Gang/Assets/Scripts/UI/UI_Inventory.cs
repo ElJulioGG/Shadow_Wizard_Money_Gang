@@ -29,19 +29,14 @@ public class UI_Inventory : MonoBehaviour
 
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
 
-
-        //RefreshInventoryItems();
-
-        // wdaw
-       // RefreshInventoryItems();
+        RefreshInventoryItems();
 
     }
 
     private void Inventory_OnItemListChanged(object sender, System.EventArgs e)
     {
-        //RefreshInventoryItems();
+        RefreshInventoryItems();
     }
-
 
     private void RefreshInventoryItems() //Inventory stuff
     {
@@ -53,7 +48,7 @@ public class UI_Inventory : MonoBehaviour
 
         int x = 0;
         int y = 0;
-        float itemSlotCellSize = 15f;
+        float itemSlotCellSize = 20f;
         foreach (Item item in inventory.GetItemList())
         {
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
@@ -88,8 +83,7 @@ public class UI_Inventory : MonoBehaviour
 
             //El "ProyectileColider" del Player afecta en el recojo de los objetos
             //ya que hace que cuente como 2 recogidas en vez de una
-
-            //Debug.Log(image); //verificar que es "image"
+            
             x++;
             if (x > 4)
             {
