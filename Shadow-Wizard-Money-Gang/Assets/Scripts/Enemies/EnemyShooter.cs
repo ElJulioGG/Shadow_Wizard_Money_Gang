@@ -15,10 +15,32 @@ public class EnemyShooter : MonoBehaviour
     [SerializeField] private bool stagger;
     [SerializeField] private bool oscillate;
 
+
     private float timer = 0f;
     private bool isShooting = false;
     public float distanceBullet;
+    private void Start()
+    {
+       
+        player = GameObject.FindGameObjectWithTag("Player");
 
+        
+    }
+    private void Update()
+    {
+        timer += Time.deltaTime;
+        float distance = Vector2.Distance(transform.position, player.transform.position);
+        if (distance <= distanceBullet)
+        {
+            timer += Time.deltaTime;
+
+            if (timer >= timeBetweenBursts)
+            {
+                Attack();
+                timer = 0;
+            }
+        }
+    }
     public void Attack()
     {
         if (!isShooting)
@@ -105,29 +127,6 @@ public class EnemyShooter : MonoBehaviour
         Vector2 pos = new Vector2(x, y);
 
         return pos;
-    }
-
-    private void Start()
-    {
-       
-        player = GameObject.FindGameObjectWithTag("Player");
-        
-    }
-    private void Update()
-    {
-        timer += Time.deltaTime;
-
-        float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance <= distanceBullet)
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= timeBetweenBursts)
-            {
-                Attack();
-                timer = 0;
-            }
-        }
     }
 
 }

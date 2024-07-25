@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
         uiInventory.SetPlayer(this); //Drop item stuff
         uiInventory.SetInventory(inventory); //Inventory stuff
 
-        //Añadir los items en el suelo (usar el editor)
+        //Aï¿½adir los items en el suelo (usar el editor)
         //ItemWorld.SpawnItemWorld(new Vector3(0, 0),  new Item { itemType = Item.ItemType.Sword, amount = 1 });
         //ItemWorld.SpawnItemWorld(new Vector3(5, 0),  new Item { itemType = Item.ItemType.GhastTear, amount = 1 });
         //ItemWorld.SpawnItemWorld(new Vector3(10, 0), new Item { itemType = Item.ItemType.SpiderEye, amount = 1 });
@@ -71,6 +71,7 @@ public class PlayerController : MonoBehaviour
         if (itemWorld != null) {
             //Touching Item
             inventory.AddItem(itemWorld.GetItem());
+
             itemWorld.DestroySelf();
         }
     }
