@@ -33,6 +33,7 @@ namespace DialogSystem
             gameObject.SetActive(false);
             dialogFinished = true;
             GameManager.instance.playerIsInDialog = false;
+            GameManager.instance.playerCanMove = true;
         }
         private void Deactivate()
         {

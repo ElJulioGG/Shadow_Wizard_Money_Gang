@@ -11,6 +11,9 @@ TagManager:
   - Atack2
   - Bullet
   - Npc
+  - TeleportTower
+  - BaseTeleport1
+  - BaseTeleport2
   layers:
   - Default
   - TransparentFX

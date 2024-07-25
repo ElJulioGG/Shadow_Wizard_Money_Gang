@@ -16,10 +16,14 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int currentPlayerWeapon = 0;
     [SerializeField] public bool playerDied;
     [SerializeField] public bool playerCanInput = true;
+    [SerializeField] public bool playerCanMove = true;
     [SerializeField] public bool weaponChange = true;
+    [SerializeField] public bool playerCanAtack = true;
     [SerializeField] public bool playerIsShadow = false;
     [SerializeField] public bool playerIsInDialog = false;
     [SerializeField] public bool playerCanDialog = false;
+    [SerializeField] public bool playerCanAlchemy = false;
+
 
     [Header("Camera")]
     [SerializeField] public int activeCamera = 0;
@@ -32,6 +36,13 @@ public class GameManager : MonoBehaviour
 
     [Header("Bases Conditions")]
     [SerializeField] public int basesDefended = 0;
+
+    [Header("Area Manager")]
+    [SerializeField] public bool blockPeCausa = true;
+    [SerializeField] public bool blockTower1= true;
+    [SerializeField] public bool blockTower2 = true;
+    [SerializeField] public bool BlockOutsideBase1A = true;
+    [SerializeField] public bool BlockOutsideBase2A = true;
 
 
     private void Awake()

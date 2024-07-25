@@ -29,7 +29,12 @@ public class UI_Inventory : MonoBehaviour
 
         inventory.OnItemListChanged += Inventory_OnItemListChanged;
 
+
         //RefreshInventoryItems();
+
+        // wdaw
+       // RefreshInventoryItems();
+
     }
 
     private void Inventory_OnItemListChanged(object sender, System.EventArgs e)

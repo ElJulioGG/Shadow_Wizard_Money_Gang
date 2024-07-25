@@ -34,40 +34,42 @@ public class PlayerAtack1 : MonoBehaviour
     }
     void Update()
     {
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+        if (GameManager.instance.playerCanMove) {
+            mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector2 direction = mousePos - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            Vector2 direction = mousePos - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
 
-        if (!canFire)
-        {
-            timer += Time.deltaTime;
-            if (timer > timerBetweenFiring)
+            if (!canFire)
             {
-                canFire = true;
-                timer = 0;
+                timer += Time.deltaTime;
+                if (timer > timerBetweenFiring)
+                {
+                    canFire = true;
+                    timer = 0;
+                }
             }
-        }
 
-        if (Input.GetMouseButtonDown(0) && canFire)
-        {
-           // AtackAnimator.SetTrigger("Swing");
-           // AudioManager.instance.PlaySfx("SwordSwing");
-            canFire = false;
-            AtackSprite.SetActive(true);
-            Invoke("activateHitbox", hitboxDelayTime);
-            Invoke("deactivateSprite", spriteAnimTime);
-           
-            ammo--;
-        }
-      
-        newPosition = new Vector3(Player.transform.position.x + offsetX, Player.transform.position.y + offsetY, Player.transform.position.z + offsetZ);
-        gameObject.transform.position = newPosition;
-        if (ammo <= 0)
-        {
-            //gameObject.SetActive(false);
+            if (Input.GetMouseButtonDown(0) && canFire && GameManager.instance.playerCanAtack)
+            {
+                // AtackAnimator.SetTrigger("Swing");
+                // AudioManager.instance.PlaySfx("SwordSwing");
+                canFire = false;
+                AtackSprite.SetActive(true);
+                Invoke("activateHitbox", hitboxDelayTime);
+                Invoke("deactivateSprite", spriteAnimTime);
+
+                ammo--;
+            }
+
+            newPosition = new Vector3(Player.transform.position.x + offsetX, Player.transform.position.y + offsetY, Player.transform.position.z + offsetZ);
+            gameObject.transform.position = newPosition;
+            if (ammo <= 0)
+            {
+                //gameObject.SetActive(false);
+            }
         }
     }
     private void deactivateHitbox()

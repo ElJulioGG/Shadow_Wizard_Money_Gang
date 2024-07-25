@@ -105,7 +105,7 @@ private void UseItem(Item item)
 
     private void Update()
     {
-        if (!inDialogue()) { 
+        if (!inDialogue()&& GameManager.instance.playerCanMove) { 
             if (isDashing)
             {
                 return;
@@ -125,11 +125,18 @@ private void UseItem(Item item)
 
     private void FixedUpdate()
     {
-        if (isDashing)
+        if (!inDialogue() && GameManager.instance.playerCanMove)
         {
-            return;
+            if (isDashing)
+            {
+                return;
+            }
+            Move();
         }
-        Move();
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
         
     }
 
@@ -145,6 +152,7 @@ private void UseItem(Item item)
 
     private IEnumerator Roll()
     {
+        GameManager.instance.playerCanAtack = false;
         playerAnimator.SetBool("IsRolling", true);
         isDashing = true;
         GameManager.instance.playerInvinsibility = true;
@@ -152,6 +160,7 @@ private void UseItem(Item item)
 
         yield return new WaitForSeconds(dashDuration);
         GameManager.instance.playerInvinsibility = false;
+        GameManager.instance.playerCanAtack = true;
         isDashing = false;
         playerAnimator.SetBool("IsRolling", false);
     }
@@ -172,10 +181,14 @@ private void UseItem(Item item)
         if(collision.gameObject.tag == "Npc")
         {
             GameManager.instance.playerCanDialog = true;
+            
             npc = collision.gameObject.GetComponent<NpcController>();
+            
             if(Input.GetKey(KeyCode.E))
             {
+                print("Watesigma");
                 GameManager.instance.playerIsInDialog = true;
+                GameManager.instance.playerCanMove = false;
                 npc.ActiveDialog();
                 
             }

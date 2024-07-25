@@ -29,40 +29,42 @@ public class PlayerAtack2 : MonoBehaviour
 
     void Update()
     {
-        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
-        Vector2 direction = mousePos - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
-
-        if (!canFire)
+        if (GameManager.instance.playerCanMove)
         {
-            timer += Time.deltaTime;
-            if (timer > timerBetweenFiring)
+            mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
+            Vector2 direction = mousePos - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0f, 0f, angle);
+
+            if (!canFire && GameManager.instance.playerCanAtack)
             {
-                canFire = true;
-                timer = 0;
+                timer += Time.deltaTime;
+                if (timer > timerBetweenFiring)
+                {
+                    canFire = true;
+                    timer = 0;
+                }
+            }
+
+            if (Input.GetMouseButtonDown(1) && canFire && ammo > 0 && GameManager.instance.playerCanAtack)
+            {
+                canFire = false;
+                Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+                ammo--;
+                Vector2 recoilDirection = -direction.normalized;
+                playerRb2D.AddForce(recoilDirection * recoil, ForceMode2D.Force);
+                Debug.Log("Recoil applied: " + (recoilDirection * 200));
+
+            }
+            newPosition = new Vector3(Player.transform.position.x + offsetX, Player.transform.position.y + offsetY, Player.transform.position.z + offsetZ);
+            gameObject.transform.position = newPosition;
+            if (ammo <= 0)
+            {
+                gameObject.SetActive(false);
             }
         }
-
-        if (Input.GetMouseButtonDown(1) && canFire && ammo > 0)
-        {
-            canFire = false;
-            Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-            ammo--;
-            Vector2 recoilDirection = -direction.normalized;
-            playerRb2D.AddForce(recoilDirection * recoil, ForceMode2D.Force);
-            Debug.Log("Recoil applied: " + (recoilDirection * 200));
-
-        }
-        newPosition = new Vector3(Player.transform.position.x + offsetX, Player.transform.position.y + offsetY, Player.transform.position.z + offsetZ);
-        gameObject.transform.position = newPosition;
-        if (ammo <= 0)
-        {
-            gameObject.SetActive(false);
-        }
-      
     }
     private void OnEnable()
     {
