@@ -24,6 +24,10 @@ public class UI_CraftingSystem : MonoBehaviour
             for (int y = 0; y < CraftingSystem.GRID_SIZE; y++)
             {
                 slotTransformArray[x, y] = gridContainer.Find("grid_" + x + "_" + y);
+                //slotTransformArray[x, y].GetComponent<UI_CraftingItemSlot>().OnItemDropped += UI_CraftingSystem_OnItemDropped;
+                UI_CraftingItemSlot craftingItemSlot = slotTransformArray[x, y].GetComponent<UI_CraftingItemSlot>(); //Aqui
+                craftingItemSlot.SetXY(x, y);
+                craftingItemSlot.OnItemDropped += UI_CraftingSystem_OnItemDropped;
             }
         }
 
@@ -32,6 +36,11 @@ public class UI_CraftingSystem : MonoBehaviour
         CreateItem(0, 0, new Item { itemType = Item.ItemType.GhastTear });
         CreateItem(1, 2, new Item { itemType = Item.ItemType.Crystal });
         CreateItemOutput(new Item { itemType = Item.ItemType.Sword });
+    }
+
+    private void UI_CraftingSystem_OnItemDropped(object sender, UI_CraftingItemSlot.OnItemDroppedEventArgs e)
+    {
+        Debug.Log(e.item + " " + e.x + " " + e.y);
     }
 
     private void CreateItem(int x, int y, Item item)
