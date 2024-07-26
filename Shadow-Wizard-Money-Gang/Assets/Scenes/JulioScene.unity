@@ -16472,7 +16472,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &461571427
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17232,7 +17232,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.822221, y: -23.79999, z: -10}
+  m_LocalPosition: {x: 2.764986, y: -24.93, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -34599,7 +34599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1152632179
 RectTransform:
   m_ObjectHideFlags: 0
@@ -82133,7 +82133,7 @@ GameObject:
   - component: {fileID: 1254803009}
   - component: {fileID: 1254803010}
   m_Layer: 0
-  m_Name: Sprite (placeholder test)
+  m_Name: 'Sprite '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82148,9 +82148,9 @@ Transform:
   m_GameObject: {fileID: 1254803007}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1832152194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -82195,7 +82195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 347006012, guid: 13f6e54590d94b049a0db6c07ccf11d4, type: 3}
+  m_Sprite: {fileID: 1708922508, guid: 17769d8a2b53fff4fa506a289f0f95df, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83128,7 +83128,7 @@ Transform:
   m_GameObject: {fileID: 1386124193}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3, y: -13.9, z: -10}
+  m_LocalPosition: {x: 2.765, y: -14.464999, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -83180,7 +83180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1409733486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83680,7 +83680,7 @@ Transform:
   m_GameObject: {fileID: 1473769881}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3, y: -13.9, z: 0}
+  m_LocalPosition: {x: 2.765, y: -14.464999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86670,7 +86670,7 @@ Transform:
   m_GameObject: {fileID: 1832152190}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.6, y: -27.8, z: 0}
+  m_LocalPosition: {x: 5.53, y: -28.93, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -86768,11 +86768,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeMoveSpeed: 5
   moveSpeed: 5
-  dashMoveSpeed: 10
-  dashDuration: 0.4
+  dashMoveSpeed: 6
+  dashDuration: 0.7
   dashCooldown: 1
   hitRecoveryDuration: 2
   uiInventory: {fileID: 1231813556}
+  spritePlayer: {fileID: 1254803007}
   playerAnimator: {fileID: 1254803010}
   isDashing: 0
   movement: {x: 0, y: 0}

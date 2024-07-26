@@ -15,9 +15,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float hitRecoveryDuration = 0.5f;
     [SerializeField] private UI_Inventory uiInventory; //Inventory stuff
+    [SerializeField] private GameObject spritePlayer;
     private NpcController npc;
 
 
+    private bool switchOrientation;
     public static event Action OnPlayerDamaged;
 
     public Animator playerAnimator;
@@ -120,6 +122,7 @@ private void UseItem(Item item)
             {
                 StartCoroutine(HitRecovery());
             }
+            ChangeOrientation(movement.x);
         }
     }
 
@@ -147,13 +150,21 @@ private void UseItem(Item item)
     private void Move()
     {
         rb.MovePosition(rb.position + movement * (activeMoveSpeed * Time.fixedDeltaTime));
-
+        if(movement != Vector2.zero)
+        {
+            playerAnimator.SetBool("IsRunning",true);
+        }
+        else
+        {
+            playerAnimator.SetBool("IsRunning", false);
+        }
     }
 
     private IEnumerator Roll()
     {
         GameManager.instance.playerCanAtack = false;
         playerAnimator.SetBool("IsRolling", true);
+        print("RollingTrue!");
         isDashing = true;
         GameManager.instance.playerInvinsibility = true;
         rb.velocity = new Vector2(movement.x * dashMoveSpeed, movement.y * dashMoveSpeed);
@@ -163,6 +174,7 @@ private void UseItem(Item item)
         GameManager.instance.playerCanAtack = true;
         isDashing = false;
         playerAnimator.SetBool("IsRolling", false);
+        print("RollingFalse!");
     }
     private IEnumerator HitRecovery()
     {
@@ -192,6 +204,15 @@ private void UseItem(Item item)
                 npc.ActiveDialog();
                 
             }
+        }
+    }
+    void ChangeOrientation(float inputMovement)
+    {
+        if ((switchOrientation == true && inputMovement > 0) || (switchOrientation == false && inputMovement < 0))
+        {
+
+            switchOrientation = !switchOrientation;
+            spritePlayer.transform.localScale = new Vector2(-spritePlayer.transform.localScale.x, spritePlayer.transform.localScale.y);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

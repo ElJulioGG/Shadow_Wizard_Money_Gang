@@ -49,7 +49,7 @@ public class AIChase : MonoBehaviour
             }
             if(timer>= speed)
             {
-            print("wws");
+            
                 setnewdestination();
                 timer = 0;
             }
@@ -63,7 +63,7 @@ public class AIChase : MonoBehaviour
     {
         if (collision.CompareTag("Wall"))
         {
-            print("wwzzz");
+            
             waypoint = new Vector2(Random.Range(-WanderingArea, WanderingArea), Random.Range(-WanderingArea, WanderingArea));
         }
     }

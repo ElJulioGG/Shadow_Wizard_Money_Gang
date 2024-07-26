@@ -21,7 +21,7 @@ public class AreaManager : MonoBehaviour
             { 4, () => GameManager.instance.BlockOutsideBase2A },
             //{ 5, () => GameManager.instance.BlockOutsideBase2A }
         };
-    }
+    }//ad
     /// <summary>
     /// w
     /// </summary>
