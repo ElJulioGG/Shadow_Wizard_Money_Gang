@@ -57,7 +57,7 @@ public class CraftingSystem
         }
         else
         {
-            if (item.itemType == GetItem(x, y).itemType)
+            if (item.itemType == GetItem(x, y).itemType) //Aqui
             {
                 IncreaseItemAmount(x, y);
                 return true;
