@@ -115,7 +115,7 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         //SetSprite(Item.GetSprite(item.itemType));
         SetAmountText(item.amount);
 
-        //spriteRenderer.sprite = item.GetSprite(); //test
+        //spriteRenderer.sprite = item.GetSprite(); //test SPRITE TEST
     }
 
 }
