@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BulletSpawner : MonoBehaviour
 {
-    enum SpawnerType { Straight, StraightDuo, Spin }
+    enum SpawnerType { StraightDuo, StraightQuad, Spin }
 
 
     [Header("Bullet Attributes")]
@@ -19,7 +19,10 @@ public class BulletSpawner : MonoBehaviour
     [SerializeField] private SpawnerType spawnerType;
     [SerializeField] private float firingRate = 1f; 
     public float RotationSpeed = 1f;
-
+    [SerializeField] [Range(0, 359)] private float angleSpread1;
+    [SerializeField] [Range(0, 359)] private float angleSpread2;
+    [SerializeField] [Range(0, 359)] private float angleSpread3;
+    [SerializeField] [Range(0, 359)] private float angleSpread4;
     private GameObject player;
     private GameObject spawnedBullet;
     private float timer = 0f;
@@ -56,16 +59,27 @@ public class BulletSpawner : MonoBehaviour
      
                 if (spawnerType == SpawnerType.StraightDuo)
                 {
-                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(180, Vector3.forward));
-                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(0, Vector3.forward));
-            }
-                else
+                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread1, Vector3.forward));
+                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread2, Vector3.forward));
+                }
+
+                if(spawnerType == SpawnerType.Spin)
                 {
                  spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                 spawnedBullet.transform.rotation = transform.rotation; 
                 }
+
+                if (spawnerType == SpawnerType.StraightQuad)
+                {
+                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread1, Vector3.forward));
+                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread2, Vector3.forward));
+                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread3, Vector3.forward));
+                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread4, Vector3.forward));
+                }   
+
                 spawnedBullet.GetComponent<Bullet>().speed = speed;
                 spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
-                spawnedBullet.transform.rotation = transform.rotation;
+  
             }
         
 

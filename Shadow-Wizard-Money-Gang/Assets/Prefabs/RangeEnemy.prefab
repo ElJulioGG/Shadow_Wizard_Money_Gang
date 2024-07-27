@@ -52,13 +52,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8468864433871609128, guid: 0f9e7f912a2cef74a865a3b90bde5cc3, type: 3}
   burstCount: 1
-  projectilesPerBurst: 20
-  angleSpread: 359
+  projectilesPerBurst: 1
+  angleSpread: 0
   startingDistance: 0.1
   timeBetweenBursts: 0
-  restTime: 0.5
-  stagger: 1
-  oscillate: 1
+  restTime: 0.3
+  stagger: 0
+  oscillate: 0
   distanceBullet: 6
 --- !u!212 &8003925810959334545
 SpriteRenderer:
