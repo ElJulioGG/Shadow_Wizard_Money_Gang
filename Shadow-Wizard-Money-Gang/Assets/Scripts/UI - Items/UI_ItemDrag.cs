@@ -72,7 +72,7 @@ public class UI_ItemDrag : MonoBehaviour {
         }
     }
 
-    public void Hide() {
+    public void Hide() {    //Aqui?
         gameObject.SetActive(false);
     }
 

@@ -43,6 +43,8 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
+
+        //UI_ItemDrag.Instance.Show(item);
     }
 
     public void OnDrag(PointerEventData eventData) {
@@ -60,6 +62,8 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;  //
         canvasGroup.blocksRaycasts = true;
+
+        //UI_ItemDrag.Instance.Hide();
     }
 
     public void OnPointerDown(PointerEventData eventData) {

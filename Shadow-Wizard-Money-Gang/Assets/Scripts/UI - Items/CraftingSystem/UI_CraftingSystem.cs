@@ -41,6 +41,7 @@ public class UI_CraftingSystem : MonoBehaviour
     private void UI_CraftingSystem_OnItemDropped(object sender, UI_CraftingItemSlot.OnItemDroppedEventArgs e)
     {
         Debug.Log(e.item + " " + e.x + " " + e.y);
+        //Debug.Log("This is a spot");
     }
 
     private void CreateItem(int x, int y, Item item)
