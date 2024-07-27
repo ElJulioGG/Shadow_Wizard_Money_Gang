@@ -25,6 +25,7 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     private Image image;
     private Item item;
     private TextMeshProUGUI amountText;
+    private SpriteRenderer spriteRenderer; //test
 
     private void Awake() {
         rectTransform = GetComponent<RectTransform>();
@@ -32,6 +33,8 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         canvas = GetComponentInParent<Canvas>();
         image = transform.Find("image").GetComponent<Image>();
         amountText = transform.Find("amountText").GetComponent<TextMeshProUGUI>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>(); //test
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -43,8 +46,6 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         Debug.Log("OnBeginDrag");
         canvasGroup.alpha = .6f;
         canvasGroup.blocksRaycasts = false;
-
-        //UI_ItemDrag.Instance.Show(item);
     }
 
     public void OnDrag(PointerEventData eventData) {
@@ -62,8 +63,6 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         Debug.Log("OnEndDrag");
         canvasGroup.alpha = 1f;  //
         canvasGroup.blocksRaycasts = true;
-
-        //UI_ItemDrag.Instance.Hide();
     }
 
     public void OnPointerDown(PointerEventData eventData) {
@@ -115,6 +114,8 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         this.item = item;
         //SetSprite(Item.GetSprite(item.itemType));
         SetAmountText(item.amount);
+
+        //spriteRenderer.sprite = item.GetSprite(); //test
     }
 
 }

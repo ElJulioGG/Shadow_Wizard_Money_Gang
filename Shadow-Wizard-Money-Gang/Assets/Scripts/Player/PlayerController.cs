@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float hitRecoveryDuration = 0.5f;
     [SerializeField] private UI_Inventory uiInventory; //Inventory stuff
     [SerializeField] private GameObject spritePlayer;
+    [SerializeField] private UI_CraftingSystem uiCraftingSystem; //Crafing system stuff
     private NpcController npc;
 
 
@@ -42,6 +43,8 @@ public class PlayerController : MonoBehaviour
         Item item = new Item { itemType = Item.ItemType.GhastTear, amount = 1 };
         craftingSystem.SetItem(item, 0, 0);
         Debug.Log(craftingSystem.GetItem(0, 0));
+
+        uiCraftingSystem.SetCraftingSystem(craftingSystem); //Aqui
     }
     
     //Player pos stuff

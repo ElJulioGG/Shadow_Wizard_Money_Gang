@@ -11,6 +11,7 @@ public class UI_CraftingSystem : MonoBehaviour
     private Transform[,] slotTransformArray;
     private Transform outputSlotTransform;
     private Transform itemContainer;
+    private CraftingSystem craftingSystem;
 
     private void Awake()
     {
@@ -33,20 +34,54 @@ public class UI_CraftingSystem : MonoBehaviour
 
         outputSlotTransform = transform.Find("outputSlot");
 
-        CreateItem(0, 0, new Item { itemType = Item.ItemType.GhastTear });
-        CreateItem(1, 2, new Item { itemType = Item.ItemType.Crystal });
-        CreateItemOutput(new Item { itemType = Item.ItemType.Sword });
+        //Item test
+        CreateItem(0, 0, new Item { itemType = Item.ItemType.Crystal });
+        //CreateItem(1, 2, new Item { itemType = Item.ItemType.Crystal });
+        //CreateItemOutput(new Item { itemType = Item.ItemType.Sword });
+    }
+
+    public void SetCraftingSystem(CraftingSystem craftingSystem)
+    {
+        this.craftingSystem = craftingSystem;
+        craftingSystem.OnGridChanged += CraftingSystem_OnGridChanged;
+        UpdateVisual();
+    }
+
+    private void CraftingSystem_OnGridChanged(object sender, System.EventArgs e)
+    {
+        UpdateVisual();
     }
 
     private void UI_CraftingSystem_OnItemDropped(object sender, UI_CraftingItemSlot.OnItemDroppedEventArgs e)
     {
         Debug.Log(e.item + " " + e.x + " " + e.y);
-        //Debug.Log("This is a spot");
+        craftingSystem.TryAddItem(e.item, e.x, e.y);
+    }
+
+    private void UpdateVisual()
+    {
+        //Clear old items
+        foreach (Transform child in itemContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        //Cycle through grid and spawn items
+        for (int x = 0; x < CraftingSystem.GRID_SIZE; x++)
+        {
+            for (int y = 0; y < CraftingSystem.GRID_SIZE; y++)
+            {
+                if (!craftingSystem.IsEmpty(x, y))
+                {
+                    CreateItem(x, y, craftingSystem.GetItem(x, y));
+                }
+            }
+        }
     }
 
     private void CreateItem(int x, int y, Item item)
     {
-        Transform itemTransform = Instantiate(pfUI_Item, itemContainer);
+        Transform itemTransform = Instantiate(pfUI_Item, itemContainer); //Aqui
         RectTransform itemRectTransform = itemTransform.GetComponent<RectTransform>();
         itemRectTransform.anchoredPosition = slotTransformArray[x, y].GetComponent<RectTransform>().anchoredPosition;
         itemTransform.GetComponent<UI_Item>().SetItem(item);
