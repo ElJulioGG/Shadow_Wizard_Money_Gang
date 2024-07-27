@@ -298,8 +298,9 @@ MonoBehaviour:
   speed: 1
   FacingThePlayerDistance: 6
   VisionRange: 7
-  WanderingArea: 3
-  StepsInWanderingArea: 0.5
+  wanderingTime: 1
+  WanderingArea: 2
+  StepsInWanderingArea: 0.3
 --- !u!212 &8318754716591235526
 SpriteRenderer:
   m_ObjectHideFlags: 0

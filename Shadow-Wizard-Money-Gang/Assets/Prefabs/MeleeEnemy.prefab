@@ -129,8 +129,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   VisionRange: 5
-  WanderingArea: 3
-  StepsInWanderingArea: 0.5
+  wanderingTime: 1
+  WanderingArea: 2
+  StepsInWanderingArea: 0.3
 --- !u!212 &8135034814225496182
 SpriteRenderer:
   m_ObjectHideFlags: 0
