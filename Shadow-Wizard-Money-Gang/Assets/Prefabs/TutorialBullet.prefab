@@ -134,8 +134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLife: 6
-  rotation: 0
   speed: 3
+  rotation: 0
 --- !u!50 &5684386021658970129
 Rigidbody2D:
   serializedVersion: 4
@@ -232,3 +232,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de05c0b7954572a43a97f590aa329053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnName: TutorialRespawn

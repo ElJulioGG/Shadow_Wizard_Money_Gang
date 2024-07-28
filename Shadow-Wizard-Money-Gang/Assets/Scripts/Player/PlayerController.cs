@@ -1,10 +1,11 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
+
 using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using CodeMonkey.Utils;
+
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float hitRecoveryDuration = 0.5f;
     [SerializeField] private UI_Inventory uiInventory; //Inventory stuff
     [SerializeField] private GameObject spritePlayer;
+    [SerializeField] private GameObject spriteHands1;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    
     private NpcController npc;
 
 
@@ -162,6 +166,7 @@ private void UseItem(Item item)
 
     private IEnumerator Roll()
     {
+      
         GameManager.instance.playerCanAtack = false;
         playerAnimator.SetBool("IsRolling", true);
         print("RollingTrue!");
@@ -178,12 +183,25 @@ private void UseItem(Item item)
     }
     private IEnumerator HitRecovery()
     {
+        System.Random random = new System.Random();
+        int randomInt = random.Next(0, 2);
+        print(randomInt);
         playerAnimator.SetBool("IsInvincible", true);
         GameManager.instance.playerIsHit = false;
         GameManager.instance.playerInvinsibility = true;
         GameManager.instance.playerHealth--;
         CameraShake.Instance.shakeCamera(5f, .2f);
-        OnPlayerDamaged?.Invoke();
+        switch (randomInt)
+        {
+            case 0:
+                AudioManager.instance.PlayFootSteps("PlayerHit1");
+                break;
+            case 1:
+                AudioManager.instance.PlayFootSteps("PlayerHit2");
+                break;
+        }
+        StartCoroutine(FadeAlpha());
+         OnPlayerDamaged?.Invoke();
         yield return new WaitForSeconds(hitRecoveryDuration);
         GameManager.instance.playerInvinsibility = false;
         playerAnimator.SetBool("IsInvincible", false);
@@ -213,6 +231,7 @@ private void UseItem(Item item)
 
             switchOrientation = !switchOrientation;
             spritePlayer.transform.localScale = new Vector2(-spritePlayer.transform.localScale.x, spritePlayer.transform.localScale.y);
+            spriteHands1.transform.localScale = new Vector2(-spriteHands1.transform.localScale.x, spriteHands1.transform.localScale.y);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -230,6 +249,23 @@ private void UseItem(Item item)
         {
             return false;
         }
+    }
+
+    IEnumerator FadeAlpha()
+    {
+        // Set alpha to 0
+        SetAlpha(0.0f);
+        yield return new WaitForSeconds(2.0f); // Wait for 2 seconds
+
+        // Set alpha back to 1
+        SetAlpha(1.0f);
+    }
+
+    void SetAlpha(float alpha)
+    {
+        Color color = spriteRenderer.color;
+        color.a = alpha;
+        spriteRenderer.color = color;
     }
 
 }

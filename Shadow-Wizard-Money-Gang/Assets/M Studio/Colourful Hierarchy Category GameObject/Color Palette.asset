@@ -68,6 +68,16 @@ MonoBehaviour:
     backgroundColor: {r: 0.7882679, g: 0.7924528, b: 0, a: 1}
     textAlignment: 4
     fontStyle: 0
+  - keyChar: ;;
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 0, g: 0.8301887, b: 0.6833882, a: 1}
+    textAlignment: 4
+    fontStyle: 0
+  - keyChar: ',,'
+    textColor: {r: 1, g: 1, b: 1, a: 1}
+    backgroundColor: {r: 0.754717, g: 0.63612837, b: 0, a: 1}
+    textAlignment: 4
+    fontStyle: 0
   - keyChar: ''''''
     textColor: {r: 1, g: 1, b: 1, a: 1}
     backgroundColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerAtack1 : MonoBehaviour
 {
     //public GameObject spawnParticles;
+    public GameObject HandsSprite;
     public GameObject AtackSprite;
     public Animator AtackAnimator;
     public GameObject Player;
@@ -28,6 +29,7 @@ public class PlayerAtack1 : MonoBehaviour
     [SerializeField] private float hitboxDuration;
     void Start()
     {
+        HandsSprite.SetActive(false);
         AtackSprite.SetActive(false);
         boxCollider2D.SetActive(false);
         mainCam = Camera.main;
@@ -57,7 +59,7 @@ public class PlayerAtack1 : MonoBehaviour
                 // AtackAnimator.SetTrigger("Swing");
                 // AudioManager.instance.PlaySfx("SwordSwing");
                 canFire = false;
-                AtackSprite.SetActive(true);
+                HandsSprite.SetActive(true);
                 Invoke("activateHitbox", hitboxDelayTime);
                 Invoke("deactivateSprite", spriteAnimTime);
 
@@ -75,17 +77,22 @@ public class PlayerAtack1 : MonoBehaviour
     private void deactivateHitbox()
     {
         boxCollider2D.SetActive(false);
-       
+        Invoke("deactivateAtack", hitboxDuration);
+    }
+    private void deactivateAtack()
+    {
+        AtackSprite.SetActive(false);
     }
     private void activateHitbox()
     {
+        AtackSprite.SetActive(true);
         boxCollider2D.SetActive(true);
         Invoke("deactivateHitbox", hitboxDuration);
 
     }
     private void deactivateSprite()
     {
-        AtackSprite.SetActive(false);
+        HandsSprite.SetActive(false);
     }
     private void OnEnable()
     {

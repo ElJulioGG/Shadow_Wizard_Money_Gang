@@ -56,29 +56,58 @@ public class BulletSpawner : MonoBehaviour
         
             if (bullet)
             {
-     
+
                 if (spawnerType == SpawnerType.StraightDuo)
                 {
-                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread1, Vector3.forward));
-                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread2, Vector3.forward));
-                }
+                    // First bullet in the direction of the object
+                    GameObject bullet1 = Instantiate(bullet, transform.position, transform.rotation);
+                    bullet1.GetComponent<Bullet>().speed = speed;
+                    bullet1.GetComponent<Bullet>().bulletLife = bulletLife;
 
-                if(spawnerType == SpawnerType.Spin)
+                    // Second bullet in the opposite direction
+                    Quaternion oppositeRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 180);
+                    GameObject bullet2 = Instantiate(bullet, transform.position, oppositeRotation);
+                    bullet2.GetComponent<Bullet>().speed = speed;
+                    bullet2.GetComponent<Bullet>().bulletLife = bulletLife;
+                }
+                else
                 {
-                 spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
-                 spawnedBullet.transform.rotation = transform.rotation; 
+                    GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
+                    spawnedBullet.GetComponent<Bullet>().speed = speed;
+                    spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
                 }
 
+                if (spawnerType == SpawnerType.Spin)
+                {
+                    GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
+                    spawnedBullet.GetComponent<Bullet>().speed = speed;
+                    spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+                
+    
+                    spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
+                    spawnedBullet.transform.rotation = transform.rotation; 
+                }
+                else
+                {
+                    GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
+                    spawnedBullet.GetComponent<Bullet>().speed = speed;
+                    spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+                }
                 if (spawnerType == SpawnerType.StraightQuad)
                 {
-                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread1, Vector3.forward));
-                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread2, Vector3.forward));
-                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread3, Vector3.forward));
-                spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread4, Vector3.forward));
+                    spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread1, Vector3.forward));
+                    spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread2, Vector3.forward));
+                    spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread3, Vector3.forward));
+                    spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread4, Vector3.forward));
                 }   
-
-                spawnedBullet.GetComponent<Bullet>().speed = speed;
-                spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+                else
+                {
+                    GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
+                    spawnedBullet.GetComponent<Bullet>().speed = speed;
+                    spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+                }
+                //spawnedBullet.GetComponent<Bullet>().speed = speed;
+                //spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
   
             }
         

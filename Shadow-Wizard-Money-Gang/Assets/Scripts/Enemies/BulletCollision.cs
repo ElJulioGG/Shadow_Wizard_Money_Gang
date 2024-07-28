@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class BulletCollision : MonoBehaviour
 {
-    
+    private Rigidbody2D rb;
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && !GameManager.instance.playerInvinsibility)
@@ -17,6 +21,13 @@ public class BulletCollision : MonoBehaviour
             
             Destroy(this.gameObject);
         }
+        if (collision.tag == "Atack3")
+        {
+          
+           
+            rb.angularVelocity = -rb.angularVelocity;
+        }
+
 
     }
 }

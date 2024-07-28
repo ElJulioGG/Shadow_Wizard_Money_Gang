@@ -31,6 +31,7 @@ public class AreaTeleporter : MonoBehaviour
                     case 0:
                         destination = GameObject.FindGameObjectWithTag("BaseTeleport1");
                         player.transform.position = new Vector3(destination.transform.position.x + offsetX, destination.transform.position.y + offsetY, destination.transform.position.z + offsetZ);
+
                         break;
                     case 1:
                         destination = GameObject.FindGameObjectWithTag("BaseTeleport2");

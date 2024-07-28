@@ -4,22 +4,42 @@ using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
+    public static MusicManager instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     private void Start()
     {
         // if escena is "menu" then play(MenuMusic :p)
         //else
-        setMusicAftermath();
+        setMusic("Aftermath");
     }
-    public void setMusicAftermath()
+    public void setMusic(string name)
     {
-        AudioManager.instance.PlayMusic("Aftermath");
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.PlayMusic(name);
+        print("Music Change");
     }
-    public void setMusicMenu()
+    
+    public void musicDelayTransition(string name, float delay)
     {
-        AudioManager.instance.PlayMusic("MenuMusic");
+        StartCoroutine(setMusicDelay(name, delay));
     }
-    public void setMusicExploreFight()
+    IEnumerator setMusicDelay(string name, float delay)
     {
-        AudioManager.instance.PlayMusic("Explore&Fight");
+        
+        yield return new WaitForSeconds(delay);
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.PlayMusic(name);
+        
     }
 }

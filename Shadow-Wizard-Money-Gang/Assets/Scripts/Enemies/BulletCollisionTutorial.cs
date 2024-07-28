@@ -6,10 +6,11 @@ public class BulletCollisionTutorial : MonoBehaviour
 {
     private GameObject player;
     private GameObject respawn;
+    [SerializeField]private string respawnName;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        respawn = GameObject.FindGameObjectWithTag("TutorialRespawn");
+        respawn = GameObject.FindGameObjectWithTag(respawnName);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

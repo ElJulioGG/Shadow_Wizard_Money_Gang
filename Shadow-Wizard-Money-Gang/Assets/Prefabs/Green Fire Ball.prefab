@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3300298769400881572}
   m_Layer: 0
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,8 +114,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7375, y: 0.34109375, z: 0.7375}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.7375, y: 0.34109375, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1537623238851605114}
   m_Father: {fileID: 0}
@@ -133,8 +133,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletLife: 6
-  rotation: 0
   speed: 3
+  rotation: 0
 --- !u!50 &5684386021658970129
 Rigidbody2D:
   serializedVersion: 4
@@ -161,7 +161,7 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &4845766344425646955
 BoxCollider2D:
   m_ObjectHideFlags: 0

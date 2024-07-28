@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool playerCanAlchemy = false;
 
 
+    [SerializeField] public bool defendingBase = false;
+    [SerializeField] public bool exploringAndFighting = false;
+    [SerializeField] public bool brewingPotions = false;
+    [SerializeField] public bool figthingBoss  = false;
+
+
     [Header("Camera")]
     [SerializeField] public int activeCamera = 0;
 
