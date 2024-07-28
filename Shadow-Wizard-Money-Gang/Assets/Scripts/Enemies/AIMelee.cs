@@ -10,7 +10,7 @@ public class AIChase : MonoBehaviour
     public float VisionRange;
     private float distance;
     //ublic float changePosSpeed;
-
+    public float wanderingTime;
     private float timer=0f;
     //Wandering
     [SerializeField]
@@ -41,13 +41,13 @@ public class AIChase : MonoBehaviour
                 transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             }
             else{//wandering
-                transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+                transform.position = Vector2.MoveTowards(transform.position, waypoint, wanderingTime * Time.deltaTime);
                 if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
                 {
                     setnewdestination();
                 }
             }
-            if(timer>= speed)
+            if(timer>= wanderingTime)
             {
             
                 setnewdestination();

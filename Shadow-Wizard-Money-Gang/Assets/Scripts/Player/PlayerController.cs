@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject spriteHands1;
     [SerializeField] private SpriteRenderer spriteRenderer;
     
+    [SerializeField] private UI_CraftingSystem uiCraftingSystem; //Crafing system stuff
     private NpcController npc;
 
 
@@ -44,8 +45,10 @@ public class PlayerController : MonoBehaviour
         //Crafting system stuff
         CraftingSystem craftingSystem = new CraftingSystem();
         Item item = new Item { itemType = Item.ItemType.GhastTear, amount = 1 };
-        craftingSystem.SetItem(item, 0, 0);
-        Debug.Log(craftingSystem.GetItem(0, 0));
+        //craftingSystem.SetItem(item, 0, 0);
+        //Debug.Log(craftingSystem.GetItem(0, 0));
+
+        uiCraftingSystem.SetCraftingSystem(craftingSystem); //Aqui
     }
     
     //Player pos stuff

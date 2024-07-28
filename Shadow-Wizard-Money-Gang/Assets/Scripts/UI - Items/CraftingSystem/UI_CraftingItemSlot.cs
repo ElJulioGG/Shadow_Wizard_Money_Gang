@@ -19,7 +19,7 @@ public class UI_CraftingItemSlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        //UI_CraftingItemSlot = GameObject.Find("UI_ItemDrag").GetComponent<>(UI_ItemDrag);
+        //Debug.Log(UI_ItemDrag.Instance); //Instance es Null
         UI_ItemDrag.Instance.Hide(); //Aqui
         Item item = UI_ItemDrag.Instance.GetItem();
         OnItemDropped?.Invoke(this, new OnItemDroppedEventArgs { item = item, x = x, y = y });

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7729fdf96b890a46bcfb2722b160625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullet: {fileID: 8468864433871609128, guid: f6fd4de76e40a79408deef2205a95133, type: 3}
+  bullet: {fileID: 8468864433871609128, guid: 0f9e7f912a2cef74a865a3b90bde5cc3, type: 3}
   bulletLife: 6
   speed: 3
   distanceBullet: 10
@@ -55,6 +55,8 @@ MonoBehaviour:
   RotationSpeed: 0
   angleSpread1: 90
   angleSpread2: 270
+  angleSpread3: 0
+  angleSpread4: 0
 --- !u!212 &7967984407808370454
 SpriteRenderer:
   m_ObjectHideFlags: 0

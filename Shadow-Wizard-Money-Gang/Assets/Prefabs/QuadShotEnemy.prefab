@@ -126,8 +126,9 @@ MonoBehaviour:
   speed: 2
   FacingThePlayerDistance: 5.5
   VisionRange: 8
-  WanderingArea: 3
-  StepsInWanderingArea: 0.5
+  wanderingTime: 1
+  WanderingArea: 2
+  StepsInWanderingArea: 0.3
 --- !u!50 &2590410615817192253
 Rigidbody2D:
   serializedVersion: 4

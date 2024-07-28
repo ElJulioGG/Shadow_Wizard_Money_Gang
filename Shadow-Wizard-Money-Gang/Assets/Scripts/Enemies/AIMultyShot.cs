@@ -9,6 +9,7 @@ public class AIMultyShot : MonoBehaviour
     public float FacingThePlayerDistance;
     public float VisionRange;
     private float distance;
+    public float wanderingTime;
     //Wandering
     [SerializeField]
     float WanderingArea;
@@ -35,7 +36,7 @@ public class AIMultyShot : MonoBehaviour
         //Wandering
         if (distance > VisionRange)
         {
-            transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, waypoint, wanderingTime * Time.deltaTime);
             if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
             {
                 setnewdestination();
@@ -53,6 +54,16 @@ public class AIMultyShot : MonoBehaviour
     void setnewdestination()
     {
         waypoint = new Vector2(transform.position.x + Random.Range(-WanderingArea, WanderingArea), transform.position.y + Random.Range(-WanderingArea, WanderingArea));
+    }
+
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Wall"))
+        {
+
+            waypoint = new Vector2(Random.Range(-WanderingArea, WanderingArea), Random.Range(-WanderingArea, WanderingArea));
+        }
     }
 
     //private void OnCollisionEnter2D(Collider2D collision)

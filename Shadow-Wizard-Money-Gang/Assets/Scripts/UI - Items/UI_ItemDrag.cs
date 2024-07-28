@@ -31,7 +31,7 @@ public class UI_ItemDrag : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
-
+        
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
