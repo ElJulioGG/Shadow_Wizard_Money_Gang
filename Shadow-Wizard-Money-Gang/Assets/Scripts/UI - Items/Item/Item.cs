@@ -14,6 +14,7 @@ public class Item
         SpiderEye,
         Crystal,
         ShadowHorn,
+        None,
     }
 
     public ItemType itemType;
@@ -31,6 +32,13 @@ public class Item
             case ItemType.ShadowHorn:   return ItemAssets.Instance.shadowHornSprite;
         }
     }
+
+    // Método estático para obtener un sprite basado en itemType
+    //public static Sprite GetSprite(ItemType itemType)
+    //{
+    //    Item tempItem = new Item { itemType = itemType };
+    //    return tempItem.GetSprite();
+    //}
 
     public bool IsStackable()
     {

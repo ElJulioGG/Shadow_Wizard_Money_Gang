@@ -1534,7 +1534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 8869230028777714577, guid: 4205d96c740de084e9a327fa69400fc4, type: 3}
-  UI_Item: {fileID: 0}
+  pfUI_Item: {fileID: 0}
   swordSprite: {fileID: 21300000, guid: 4a45687fa5eda844cb864fbe7f433561, type: 2}
   ghastTearSprite: {fileID: 21300000, guid: 833fbc8daf5efab49be15a80dc2e65fe, type: 2}
   spiderEyeSprite: {fileID: 21300000, guid: a7e4c069be40e95439f496b837e23cbf, type: 2}

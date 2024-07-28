@@ -16,6 +16,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using static Item;
 
 public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler {
 
@@ -115,7 +116,8 @@ public class UI_Item : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         //SetSprite(Item.GetSprite(item.itemType));
         SetAmountText(item.amount);
 
-        //spriteRenderer.sprite = item.GetSprite(); //test SPRITE TEST
+        //SetSprite(item.GetSprite()); //test 2
+        //spriteRenderer.sprite = item.GetSprite(); //test
     }
 
 }

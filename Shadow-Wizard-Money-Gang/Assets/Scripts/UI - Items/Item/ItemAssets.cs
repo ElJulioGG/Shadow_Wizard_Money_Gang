@@ -13,7 +13,7 @@ public class ItemAssets : MonoBehaviour
 
     public Transform pfItemWorld;
     
-    public Transform UI_Item; //Test
+    public Transform pfUI_Item; //Test
     
     public Sprite swordSprite;
     public Sprite ghastTearSprite;
