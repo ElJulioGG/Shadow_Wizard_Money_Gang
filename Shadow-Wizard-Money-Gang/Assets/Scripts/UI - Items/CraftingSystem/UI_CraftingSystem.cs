@@ -35,8 +35,8 @@ public class UI_CraftingSystem : MonoBehaviour
         outputSlotTransform = transform.Find("outputSlot");
 
         //Item test
-        CreateItem(1, 2, new Item { itemType = Item.ItemType.GhastTear });
-        //CreateItem(1, 2, new Item { itemType = Item.ItemType.Crystal });
+        //CreateItem(1, 2, new Item { itemType = Item.ItemType.GhastTear });
+        //CreateItem(0, 0, new Item { itemType = Item.ItemType.Crystal });
         //CreateItemOutput(new Item { itemType = Item.ItemType.Sword });
     }
 

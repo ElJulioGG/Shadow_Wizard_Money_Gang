@@ -45,8 +45,8 @@ public class PlayerController : MonoBehaviour
         //Crafting system stuff
         CraftingSystem craftingSystem = new CraftingSystem();
         Item item = new Item { itemType = Item.ItemType.GhastTear, amount = 1 };
-        //craftingSystem.SetItem(item, 0, 0);
-        //Debug.Log(craftingSystem.GetItem(0, 0));
+        //craftingSystem.SetItem(item, 1, 2);
+        //Debug.Log(craftingSystem.GetItem(1, 2));
 
         uiCraftingSystem.SetCraftingSystem(craftingSystem); //Aqui
     }

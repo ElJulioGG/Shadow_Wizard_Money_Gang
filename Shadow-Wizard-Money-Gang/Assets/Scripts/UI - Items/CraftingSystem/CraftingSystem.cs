@@ -19,6 +19,7 @@ public class CraftingSystem
     {
         itemArray = new Item[GRID_SIZE, GRID_SIZE];
 
+        //Potion crafting recipe
         potionRecipe = new Item.ItemType[GRID_SIZE, GRID_SIZE];
         potionRecipe[0, 2] = Item.ItemType.None;    potionRecipe[1, 2] = Item.ItemType.GhastTear;   potionRecipe[2, 2] = Item.ItemType.None;
         potionRecipe[0, 1] = Item.ItemType.None;    potionRecipe[1, 1] = Item.ItemType.None;        potionRecipe[2, 1] = Item.ItemType.None;

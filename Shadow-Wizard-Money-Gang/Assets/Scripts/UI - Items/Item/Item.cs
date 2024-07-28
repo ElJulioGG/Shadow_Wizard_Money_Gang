@@ -20,7 +20,7 @@ public class Item
     public ItemType itemType;
     public int amount;
 
-    public Sprite GetSprite()
+    public Sprite GetSprite() //Aqui
     {
         switch (itemType)
         {
