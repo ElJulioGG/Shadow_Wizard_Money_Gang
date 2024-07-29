@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseContoller : MonoBehaviour
 {
     [SerializeField] private float health;
-
+    
     public Shake shake;
 
     private void Start()
@@ -14,7 +14,10 @@ public class BaseContoller : MonoBehaviour
     }
     private void Update()
     {
-        
+        if (health<= 0)
+        {
+            //you loose
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

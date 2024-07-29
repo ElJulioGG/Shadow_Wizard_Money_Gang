@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Attack3Controller : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Attack3Controller : MonoBehaviour
     [SerializeField] private float attackDuration = 0.5f;
     private bool canFire = true;
     public GameObject breakParticles;
+    public Slider shieldCooldownBar; //Shield cooldown stuff
 
     void Update()
     {
@@ -16,6 +18,20 @@ public class Attack3Controller : MonoBehaviour
             canFire = false;
             StartCoroutine(Attack());
         }
+        //d
+        //Shield cooldown
+        //shieldCooldownBar.maxValue = 1f;
+        //shieldCooldownBar.minValue = 0f;
+        shieldCooldownBar.value = attackDelay / attackDuration;
+        if (shieldCooldownBar.value >= 1f)
+        {
+            shieldCooldownBar.gameObject.SetActive(false);
+        }
+        else
+        {
+            shieldCooldownBar.gameObject.SetActive(true);
+        }
+
     }
 
     IEnumerator Attack()
@@ -30,5 +46,6 @@ public class Attack3Controller : MonoBehaviour
         yield return new WaitForSeconds(attackDelay);
         canFire = true;
         Debug.Log("Ready to attack again");
+
     }
 }
