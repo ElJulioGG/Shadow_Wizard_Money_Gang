@@ -8,29 +8,29 @@ public class EnemyShooter : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private int burstCount;
     [SerializeField] private int projectilesPerBurst;
-    [SerializeField][Range(0, 359)] private float angleSpread;
+    [SerializeField] [Range(0, 359)] private float angleSpread;
     [SerializeField] private float startingDistance = 0.1f;
     [SerializeField] private float timeBetweenBursts;
     [SerializeField] private float restTime = 1f;
     [SerializeField] private bool stagger;
     [SerializeField] private bool oscillate;
-
+    [SerializeField] private LayerMask wallLayerMask;
 
     private float timer = 0f;
     private bool isShooting = false;
     public float distanceBullet;
+
     private void Start()
     {
-       
         player = GameObject.FindGameObjectWithTag("Player");
-
-        
     }
+
     private void Update()
     {
+        float dist = Vector3.Distance(player.transform.position, transform.position);
         timer += Time.deltaTime;
         float distance = Vector2.Distance(transform.position, player.transform.position);
-        if (distance <= distanceBullet)
+        if (distance <= distanceBullet && CanSeePlayer(dist))
         {
             timer += Time.deltaTime;
 
@@ -40,6 +40,13 @@ public class EnemyShooter : MonoBehaviour
                 timer = 0;
             }
         }
+    }
+    private bool CanSeePlayer(float dist)
+    {
+        Vector2 directionToPlayer = player.transform.position - transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, dist, wallLayerMask);
+
+        return hit.collider == null;
     }
     public void Attack()
     {
@@ -51,11 +58,9 @@ public class EnemyShooter : MonoBehaviour
 
     private IEnumerator ShootRoutine()
     {
-
         isShooting = true;
 
-
-        float timeBetweenProjectiles = 0f;   
+        float timeBetweenProjectiles = 0f;
         float startAngle, currentAngle, angleStep, endAngle;
         TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
 
@@ -69,7 +74,7 @@ public class EnemyShooter : MonoBehaviour
             }
             if (oscillate && i % 2 != 1)
             {
-                 TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
+                TargetConeOfInfluence(out startAngle, out currentAngle, out angleStep, out endAngle);
             }
             else if (oscillate)
             {
@@ -86,10 +91,9 @@ public class EnemyShooter : MonoBehaviour
                 GameObject newBullet = Instantiate(bulletPrefab, pos, Quaternion.identity);
                 newBullet.transform.right = newBullet.transform.position - transform.position;
 
-
                 currentAngle += angleStep;
 
-                if (stagger) { yield return new WaitForSeconds(timeBetweenProjectiles); }  
+                if (stagger) { yield return new WaitForSeconds(timeBetweenProjectiles); }
             }
 
             currentAngle = startAngle;
@@ -111,7 +115,7 @@ public class EnemyShooter : MonoBehaviour
         angleStep = 0f;
         if (angleSpread != 0)
         {
-            angleStep = angleSpread / (projectilesPerBurst );
+            angleStep = angleSpread / (projectilesPerBurst);
             halfAngleSpread = angleSpread / 2f;
             startAngle = targetAngle - halfAngleSpread;
             endAngle = targetAngle + halfAngleSpread;
@@ -128,5 +132,4 @@ public class EnemyShooter : MonoBehaviour
 
         return pos;
     }
-
 }

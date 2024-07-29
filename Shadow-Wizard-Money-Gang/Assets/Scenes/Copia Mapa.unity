@@ -36078,6 +36078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d85cfc8d6b3d64aaaa95a572286bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HandsSprite: {fileID: 0}
   AtackSprite: {fileID: 311411880}
   AtackAnimator: {fileID: 311411883}
   Player: {fileID: 1832152190}
@@ -119976,6 +119977,9 @@ MonoBehaviour:
   hitRecoveryDuration: 2
   uiInventory: {fileID: 1231813556}
   spritePlayer: {fileID: 1254803007}
+  spriteHands1: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  uiCraftingSystem: {fileID: 0}
   playerAnimator: {fileID: 1254803010}
   isDashing: 0
   movement: {x: 0, y: 0}
@@ -121016,6 +121020,10 @@ MonoBehaviour:
   playerIsInDialog: 0
   playerCanDialog: 0
   playerCanAlchemy: 0
+  defendingBase: 0
+  exploringAndFighting: 0
+  brewingPotions: 0
+  figthingBoss: 0
   activeCamera: 0
   material1: 0
   material2: 0
@@ -123282,6 +123290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 8869230028777714577, guid: 4205d96c740de084e9a327fa69400fc4, type: 3}
+  pfUI_Item: {fileID: 0}
   swordSprite: {fileID: 21300018, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
   ghastTearSprite: {fileID: 21300032, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
   spiderEyeSprite: {fileID: 21300058, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
