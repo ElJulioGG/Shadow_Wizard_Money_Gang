@@ -18,7 +18,8 @@ public class Attack3Controller : MonoBehaviour
             canFire = false;
             StartCoroutine(Attack());
         }
-        //d
+
+
         //Shield cooldown
         //shieldCooldownBar.maxValue = 1f;
         //shieldCooldownBar.minValue = 0f;
