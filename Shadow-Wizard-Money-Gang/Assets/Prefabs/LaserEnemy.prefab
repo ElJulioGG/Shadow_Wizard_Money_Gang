@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 7701212596729131014}
   - component: {fileID: 6941647718202113430}
   - component: {fileID: 6124163413734240564}
-  - component: {fileID: 5706241736431653278}
   - component: {fileID: 4320266075943127870}
   m_Layer: 0
   m_Name: LaserGun
@@ -60,7 +59,7 @@ Transform:
   m_GameObject: {fileID: 5890656755952313036}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.261, y: 0, z: 0.1625}
+  m_LocalPosition: {x: 0.008, y: 0, z: 0.1625}
   m_LocalScale: {x: 0.675, y: 0.14837176, z: 0.675}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -140,24 +139,6 @@ MonoBehaviour:
   TimeBetweenBeam: 3
   lineDuration: 0.5
   Delay: 0.3
---- !u!114 &5706241736431653278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5890656755952313036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad2d09602740f8c44bbf9e4a1bbe3aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyHealth: 20
-  atack1Inmune: 0
-  atack2Inmune: 0
-  damageParticlesPrefab: {fileID: 0}
-  pushForceMelee: 50
-  pushForceBullet: 25
 --- !u!120 &4320266075943127870
 LineRenderer:
   serializedVersion: 2
@@ -281,8 +262,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6604856353518034784}
   - component: {fileID: 1272841185035486578}
+  - component: {fileID: 4944081305634921700}
+  - component: {fileID: 2180242710596064531}
   - component: {fileID: 8318754716591235526}
-  - component: {fileID: 7198401256107707438}
+  - component: {fileID: 140759406276742687}
+  - component: {fileID: 5237876155752474538}
   m_Layer: 0
   m_Name: LaserEnemy
   m_TagString: Enemy
@@ -327,6 +311,36 @@ MonoBehaviour:
     m_Bits: 64
   WanderingArea: 2
   StepsInWanderingArea: 0.3
+--- !u!114 &4944081305634921700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942645980055693383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2d09602740f8c44bbf9e4a1bbe3aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 20
+  atack1Inmune: 0
+  atack2Inmune: 0
+  damageParticlesPrefab: {fileID: 0}
+  pushForceMelee: 50
+  pushForceBullet: 25
+--- !u!114 &2180242710596064531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942645980055693383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21702440dfb57bd4f8144f0edc4ee38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &8318754716591235526
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -379,7 +393,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &7198401256107707438
+--- !u!61 &140759406276742687
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -411,7 +425,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.25197577, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -422,5 +436,32 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
+  m_Size: {x: 0.5089021, y: 2}
   m_EdgeRadius: 0
+--- !u!50 &5237876155752474538
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942645980055693383}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 4
