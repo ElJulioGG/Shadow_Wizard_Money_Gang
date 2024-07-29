@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad2d09602740f8c44bbf9e4a1bbe3aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyHealth: 20
+  enemyHealth: 30
   atack1Inmune: 0
   atack2Inmune: 1
   damageParticlesPrefab: {fileID: 0}

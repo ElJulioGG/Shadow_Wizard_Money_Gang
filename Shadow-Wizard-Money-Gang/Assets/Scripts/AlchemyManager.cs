@@ -140,6 +140,8 @@ public class AlchemyManager : MonoBehaviour
                     GameManager.instance.material1 = GameManager.instance.material1 - 2;
                     GameManager.instance.material4 = GameManager.instance.material4 - 5;
                     print("Potion4");
+                    messageBuff = "Beeg flufin blast: B";
+                    buffManager.Buff5();
                     hasBrewed = true;
                 }
                 else
@@ -154,6 +156,8 @@ public class AlchemyManager : MonoBehaviour
                     GameManager.instance.material2 = GameManager.instance.material2 - 2;
                     GameManager.instance.material4 = GameManager.instance.material4 - 4;
                     hasBrewed = true;
+                    messageBuff = "I am speed - damage";
+                    buffManager.Buff6();
                     print("Potion5");
                 }
                 else
