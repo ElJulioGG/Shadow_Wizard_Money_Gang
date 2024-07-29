@@ -17,6 +17,7 @@ TagManager:
   - Laser
   - Atack3
   - TutorialRespawn2
+  - Enemy
   layers:
   - Default
   - TransparentFX

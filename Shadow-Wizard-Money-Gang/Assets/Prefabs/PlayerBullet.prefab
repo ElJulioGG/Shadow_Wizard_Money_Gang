@@ -48,9 +48,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96bee35add4055541b3550b0ee022fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  force: 10
   damage: 100
   magnitude: 15
+  breakParticles: {fileID: 6450986121405535418, guid: b78f32b0b967b2f49a9c069689fbd9b4, type: 3}
   destroyTime: 3
 --- !u!50 &8509350818033864617
 Rigidbody2D:

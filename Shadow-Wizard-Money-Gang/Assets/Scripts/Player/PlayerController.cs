@@ -200,6 +200,17 @@ public void ConsumeItem(int itemIndex, int amount_)
         GameManager.instance.playerInvinsibility = true;
         rb.velocity = new Vector2(movement.x * dashMoveSpeed, movement.y * dashMoveSpeed);
 
+        System.Random random = new System.Random();
+        int randomInt = random.Next(0, 2);
+        switch (randomInt)
+        {
+            case 0:
+                AudioManager.instance.PlaySfx3("PlayerRoll1");
+                break;
+            case 1:
+                AudioManager.instance.PlaySfx3("PlayerRoll2");
+                break;
+        }
         yield return new WaitForSeconds(dashDuration);
         GameManager.instance.playerInvinsibility = false;
         GameManager.instance.playerCanAtack = true;

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: -2960478456907069751}
   m_Layer: 0
   m_Name: RangeDefenseA
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   speed: 2
   FacingThePlayerDistance: 10
   VisionRange: 50
+  wanderingTime: 0
   WanderingArea: 3
   StepsInWanderingArea: 0.5
 --- !u!70 &3696377651298461794

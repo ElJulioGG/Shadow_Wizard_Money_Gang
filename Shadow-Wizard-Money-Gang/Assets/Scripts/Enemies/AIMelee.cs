@@ -9,6 +9,7 @@ public class AIChase : MonoBehaviour
     public float speed;
     public float VisionRange;
     private float distance;
+    [SerializeField] private Animator animatorEyes;
     //ublic float changePosSpeed;
     public float wanderingTime;
     private float timer=0f;
@@ -29,19 +30,21 @@ public class AIChase : MonoBehaviour
     void Update()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
-        Vector2 direction = player.transform.position - transform.position;
+       // Vector2 direction = player.transform.position - transform.position;
 
-        direction.Normalize();
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        //direction.Normalize();
+       // float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         //Chase
             if (distance < VisionRange)
             {
                 transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-                transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+            //transform.rotation = Quaternion.Euler(Vector3.forward * angle);
+                  animatorEyes.SetBool("SlimeInRange",true);
             }
             else{//wandering
-                transform.position = Vector2.MoveTowards(transform.position, waypoint, wanderingTime * Time.deltaTime);
+                 animatorEyes.SetBool("SlimeInRange", false);
+            transform.position = Vector2.MoveTowards(transform.position, waypoint, wanderingTime * Time.deltaTime);
                 if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
                 {
                     setnewdestination();

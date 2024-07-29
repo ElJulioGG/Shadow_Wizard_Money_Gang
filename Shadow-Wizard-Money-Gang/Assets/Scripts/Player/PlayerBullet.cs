@@ -12,7 +12,7 @@ public class PlayerBullet : MonoBehaviour
     public float force;
     public int damage = 100;
     public int magnitude = 15;
-    //public GameObject breakParticles;
+    public GameObject breakParticles;
     [SerializeField] private float destroyTime = 1f;
 
 
@@ -34,8 +34,8 @@ public class PlayerBullet : MonoBehaviour
 
         Vector2 recoilDirection = -new Vector2(direction.x, direction.y).normalized;
         playerRb.AddForce(recoilDirection * magnitude, ForceMode2D.Impulse);
-
-
+        AudioManager.instance.PlaySfxLoop1("AirTimeProyectile");
+       
     }
 
     // Update is called once per frame
@@ -67,11 +67,20 @@ public class PlayerBullet : MonoBehaviour
            ;
         }
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "Melee")
+        {
+            destroyEvent();
+        }
+    }
 
     private void destroyEvent()
     {
         // AudioManager.instance.PlaySfx("Negative");
-        //Instantiate(breakParticles, gameObject.transform.position, Quaternion.identity);
+        Instantiate(breakParticles, gameObject.transform.position, Quaternion.identity);
         Destroy(gameObject);
+        AudioManager.instance.sfxLoopSource1.Stop();
+        AudioManager.instance.PlaySfx4("ImpactProyectile");
     }
 }
