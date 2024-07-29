@@ -9,9 +9,9 @@ using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float activeMoveSpeed = 1f;
-    [SerializeField] private float moveSpeed = 1f;
-    [SerializeField] private float dashMoveSpeed = 2f;
+    [SerializeField] public float activeMoveSpeed = 1f;
+    [SerializeField] public float moveSpeed = 1f;
+    [SerializeField] public float dashMoveSpeed = 2f;
     [SerializeField] private float dashDuration = 0.5f;
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float hitRecoveryDuration = 0.5f;
@@ -241,7 +241,7 @@ public int getShadowHornQuantity()
         playerAnimator.SetBool("IsInvincible", true);
         GameManager.instance.playerIsHit = false;
         GameManager.instance.playerInvinsibility = true;
-        GameManager.instance.playerHealth--;
+        GameManager.instance.playerHealth = GameManager.instance.playerHealth - GameManager.instance.playerDamageReceived;
         CameraShake.Instance.shakeCamera(5f, .2f);
         switch (randomInt)
         {

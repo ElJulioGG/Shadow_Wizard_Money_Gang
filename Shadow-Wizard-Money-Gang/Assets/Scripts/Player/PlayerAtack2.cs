@@ -52,7 +52,7 @@ public class PlayerAtack2 : MonoBehaviour
             {
                 canFire = false;
                 Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-                ammo--;
+                
                 Vector2 recoilDirection = -direction.normalized;
                 playerRb2D.AddForce(recoilDirection * recoil, ForceMode2D.Force);
                 Debug.Log("Recoil applied: " + (recoilDirection * 200));

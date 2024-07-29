@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [Header("Player Stats")]
     [SerializeField] public int playerHealth = 3;
+    [SerializeField] public int playerDamageReceived = 1;
     [SerializeField] public int playerMaxHealth = 3;
     [SerializeField] public int playerDamage1 = 20;
     [SerializeField] public int playerDamage2 = 10;
+    [SerializeField] public int playerBulletForce = 10;
     [Header("Player Conditions")]
     [SerializeField] public bool playerIsHit;
     [SerializeField] public bool playerInvinsibility;
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool playerIsInDialog = false;
     [SerializeField] public bool playerCanDialog = false;
     [SerializeField] public bool playerCanAlchemy = false;
+    [SerializeField] public bool playerPiercingShot = false;
 
 
     [SerializeField] public bool defendingBase = false;

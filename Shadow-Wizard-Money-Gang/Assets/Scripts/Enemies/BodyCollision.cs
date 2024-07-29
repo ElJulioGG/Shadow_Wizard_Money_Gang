@@ -10,7 +10,6 @@ public class BodyCollision : MonoBehaviour
         if (collision.tag == "Player" && !GameManager.instance.playerInvinsibility)
         {
             GameManager.instance.playerIsHit = true;
-
         }
     }
 }

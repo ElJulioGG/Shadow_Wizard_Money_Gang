@@ -9,7 +9,7 @@ public class PlayerBullet : MonoBehaviour
     private Vector3 mousePos;
     private Camera mainCam;
     private Rigidbody2D rb;
-    public float force;
+    
     public int damage = 100;
     public int magnitude = 15;
     public GameObject breakParticles;
@@ -27,7 +27,7 @@ public class PlayerBullet : MonoBehaviour
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         Vector3 direction = mousePos - transform.position;
         Vector3 rotation = transform.position - mousePos;
-        rb.velocity = new Vector2(direction.x, direction.y).normalized * force;
+        rb.velocity = new Vector2(direction.x, direction.y).normalized * GameManager.instance.playerBulletForce;
         float rot = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
         Invoke("destroyEvent", destroyTime); ;
@@ -69,7 +69,7 @@ public class PlayerBullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "Melee")
+        if ((collision.gameObject.tag == "Wall" || collision.gameObject.tag == "Enemy"|| collision.gameObject.tag == "Melee")&& !GameManager.instance.playerPiercingShot)
         {
             destroyEvent();
         }
