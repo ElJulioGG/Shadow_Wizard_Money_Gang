@@ -35,22 +35,22 @@ public class UI_CraftingSystem : MonoBehaviour
         outputSlotTransform = transform.Find("outputSlot");
 
         //Item test
-        //CreateItem(1, 2, new Item { itemType = Item.ItemType.GhastTear });
+        CreateItem(1, 2, new Item { itemType = Item.ItemType.GhastTear });
         //CreateItem(0, 0, new Item { itemType = Item.ItemType.Crystal });
         //CreateItemOutput(new Item { itemType = Item.ItemType.Sword });
     }
 
-    public void SetCraftingSystem(CraftingSystem craftingSystem)
-    {
-        this.craftingSystem = craftingSystem;
-        craftingSystem.OnGridChanged += CraftingSystem_OnGridChanged;
-        UpdateVisual();
-    }
+    //public void SetCraftingSystem(CraftingSystem craftingSystem)
+    //{
+    //    this.craftingSystem = craftingSystem;
+    //    craftingSystem.OnGridChanged += CraftingSystem_OnGridChanged;
+    //    UpdateVisual();
+    //}
 
-    private void CraftingSystem_OnGridChanged(object sender, System.EventArgs e)
-    {
-        UpdateVisual();
-    }
+    //private void CraftingSystem_OnGridChanged(object sender, System.EventArgs e)
+    //{
+    //    UpdateVisual();
+    //}
 
     private void UI_CraftingSystem_OnItemDropped(object sender, UI_CraftingItemSlot.OnItemDroppedEventArgs e)
     {

@@ -1,7 +1,7 @@
 using System;
 using System.Collections;
 
-using UnityEditor.Search;
+//using UnityEditor.Search;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using CodeMonkey.Utils;
@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
         //craftingSystem.SetItem(item, 1, 2);
         //Debug.Log(craftingSystem.GetItem(1, 2));
 
-        uiCraftingSystem.SetCraftingSystem(craftingSystem); //Aqui
+        //uiCraftingSystem.SetCraftingSystem(craftingSystem); //Aqui
     }
     
     //Player pos stuff
@@ -85,7 +85,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-private void UseItem(Item item)
+    //UseItem para las recetas
+public void UseItem(Item item)
     {
         switch (item.itemType)
         {
@@ -103,6 +104,28 @@ private void UseItem(Item item)
             
             case Item.ItemType.ShadowHorn:
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.ShadowHorn, amount = 1 });
+                break;
+        }
+    }
+
+public void ConsumeItem(int itemIndex, int amount_)
+    {
+        switch (itemIndex)
+        {
+            case 0: //GhastTear
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.GhastTear, amount = amount_ });
+                break;
+
+            case 1: //SpiderEye
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.SpiderEye, amount = amount_ });
+                break;
+
+            case 2: //Crystal
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.Crystal, amount = amount_ });
+                break;
+
+            case 3: //ShadowHorn
+                inventory.RemoveItem(new Item { itemType = Item.ItemType.ShadowHorn, amount = amount_ });
                 break;
         }
     }
