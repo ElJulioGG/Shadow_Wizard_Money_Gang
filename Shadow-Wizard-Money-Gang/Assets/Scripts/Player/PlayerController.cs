@@ -5,7 +5,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using CodeMonkey.Utils;
-
+using Unity.VisualScripting;
 
 public class PlayerController : MonoBehaviour
 {
@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float dashDuration = 0.5f;
     [SerializeField] private float dashCooldown = 0.5f;
     [SerializeField] private float hitRecoveryDuration = 0.5f;
-    [SerializeField] private UI_Inventory uiInventory; //Inventory stuff
+    //[SerializeField] private UI_Inventory uiInventory; //Inventory stuff
     [SerializeField] private GameObject spritePlayer;
     [SerializeField] private GameObject spriteHands1;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+   
     
     [SerializeField] private UI_CraftingSystem uiCraftingSystem; //Crafing system stuff
     private NpcController npc;
@@ -63,8 +63,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         inventory = new InventoryManager(UseItem); //Inventory stuff
-        uiInventory.SetPlayer(this); //Drop item stuff
-        uiInventory.SetInventory(inventory); //Inventory stuff
+       // uiInventory.SetPlayer(this); //Drop item stuff
+        //uiInventory.SetInventory(inventory); //Inventory stuff
 
         //Anadir los items en el suelo (usar el editor)
         //ItemWorld.SpawnItemWorld(new Vector3(0, 0),  new Item { itemType = Item.ItemType.Sword, amount = 1 });
@@ -107,27 +107,42 @@ public void UseItem(Item item)
                 break;
         }
     }
-
-public void ConsumeItem(int itemIndex, int amount_)
+    public void ConsumeItem(Item item, int amount_)
     {
-        switch (itemIndex)
+        switch (item.itemType)
         {
-            case 0: //GhastTear
+            case Item.ItemType.GhastTear:
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.GhastTear, amount = amount_ });
                 break;
 
-            case 1: //SpiderEye
+            case Item.ItemType.SpiderEye:
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.SpiderEye, amount = amount_ });
                 break;
 
-            case 2: //Crystal
+            case Item.ItemType.Crystal:
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.Crystal, amount = amount_ });
                 break;
 
-            case 3: //ShadowHorn
+            case Item.ItemType.ShadowHorn:
                 inventory.RemoveItem(new Item { itemType = Item.ItemType.ShadowHorn, amount = amount_ });
                 break;
         }
+    }
+public int getGhastItemQuantity()
+    {
+        return inventory.itemList[0].amount;
+    }
+public int getSpiderEyeQuantity()
+    {
+        return inventory.itemList[1].amount;
+    }
+public int getCrystalQuantity()
+    {
+        return inventory.itemList[2].amount;
+    }
+public int getShadowHornQuantity()
+    {
+        return inventory.itemList[3].amount;
     }
 
     private void OnEnable()
@@ -237,7 +252,7 @@ public void ConsumeItem(int itemIndex, int amount_)
                 AudioManager.instance.PlayFootSteps("PlayerHit2");
                 break;
         }
-        StartCoroutine(FadeAlpha());
+        
          OnPlayerDamaged?.Invoke();
         yield return new WaitForSeconds(hitRecoveryDuration);
         GameManager.instance.playerInvinsibility = false;
@@ -288,21 +303,6 @@ public void ConsumeItem(int itemIndex, int amount_)
         }
     }
 
-    IEnumerator FadeAlpha()
-    {
-        // Set alpha to 0
-        SetAlpha(0.0f);
-        yield return new WaitForSeconds(2.0f); // Wait for 2 seconds
 
-        // Set alpha back to 1
-        SetAlpha(1.0f);
-    }
-
-    void SetAlpha(float alpha)
-    {
-        Color color = spriteRenderer.color;
-        color.a = alpha;
-        spriteRenderer.color = color;
-    }
-
+ 
 }

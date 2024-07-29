@@ -8,7 +8,7 @@ public class InventoryManager
 {
     public event EventHandler OnItemListChanged;
     
-    private List<Item> itemList;
+    public  List<Item> itemList;
 
     private Action<Item> useItemAction;
 

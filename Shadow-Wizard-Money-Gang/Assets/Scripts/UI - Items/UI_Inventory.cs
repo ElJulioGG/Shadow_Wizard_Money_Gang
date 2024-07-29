@@ -38,7 +38,7 @@ public class UI_Inventory : MonoBehaviour
         RefreshInventoryItems();
     }
 
-    private void RefreshInventoryItems() //Inventory stuff
+    public void RefreshInventoryItems() //Inventory stuff
     {
         foreach (Transform child in itemSlotContainer)
         {
