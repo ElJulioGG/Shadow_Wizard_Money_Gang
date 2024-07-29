@@ -10,12 +10,13 @@ public class AIMultyShot : MonoBehaviour
     public float VisionRange;
     private float distance;
     public float wanderingTime;
+    private float timer = 0f;
     //Wandering
     [SerializeField]
     float WanderingArea;
     [SerializeField]
     float StepsInWanderingArea;
-
+    [SerializeField] private LayerMask wallLayerMask;
     Vector2 waypoint;
 
     void Start()
@@ -34,7 +35,7 @@ public class AIMultyShot : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         //Wandering
-        if (distance > VisionRange)
+        if (distance > VisionRange || CanSeePlayer(distance) == false)
         {
             transform.position = Vector2.MoveTowards(transform.position, waypoint, wanderingTime * Time.deltaTime);
             if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
@@ -44,11 +45,26 @@ public class AIMultyShot : MonoBehaviour
         }
 
         //Vision
-        if (distance > FacingThePlayerDistance && distance < VisionRange)
+        if (distance > FacingThePlayerDistance && distance < VisionRange && CanSeePlayer(distance))
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         }
 
+        if (timer >= wanderingTime)
+        {
+            setnewdestination();
+            timer = 0;
+        }
+        timer += Time.deltaTime;
+
+    }
+
+    private bool CanSeePlayer(float dist)
+    {
+        Vector2 directionToPlayer = player.transform.position - transform.position;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, directionToPlayer, dist, wallLayerMask);
+
+        return hit.collider == null;
     }
 
     void setnewdestination()
@@ -66,26 +82,4 @@ public class AIMultyShot : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag("Wall"))
-    //    {
-    //        if (transform.position.x > 0 && transform.position.y > 0)
-    //        {
-    //            waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
-    //        }
-    //        if (transform.position.x < 0 && transform.position.y > 0)
-    //        {
-    //            waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 - (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
-    //        }
-    //        if (transform.position.x > 0 && transform.position.y < 0)
-    //        {
-    //            waypoint = new Vector2(1 - (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
-    //        }
-    //        if (transform.position.x < 0 && transform.position.y < 0)
-    //        {
-    //            waypoint = new Vector2(1 + (transform.position.x + Random.Range(-WanderingArea, WanderingArea)), 1 + (transform.position.y + Random.Range(-WanderingArea, WanderingArea)));
-    //        }
-    //    }
-    //}
 }

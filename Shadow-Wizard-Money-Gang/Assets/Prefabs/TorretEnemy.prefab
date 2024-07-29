@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6676513228982353240}
   - component: {fileID: 3497417451165040577}
+  - component: {fileID: 7146981527303454259}
   - component: {fileID: 2764091599904503172}
   - component: {fileID: 2924121542592900200}
   - component: {fileID: 2629556680230539264}
@@ -55,6 +56,21 @@ MonoBehaviour:
   wanderingTime: 1
   WanderingArea: 3
   StepsInWanderingArea: 0.5
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
+--- !u!114 &7146981527303454259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6972970068261692560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21702440dfb57bd4f8144f0edc4ee38b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2764091599904503172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,6 +94,9 @@ MonoBehaviour:
   angleSpread2: 0
   angleSpread3: 0
   angleSpread4: 0
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!212 &2924121542592900200
 SpriteRenderer:
   m_ObjectHideFlags: 0
