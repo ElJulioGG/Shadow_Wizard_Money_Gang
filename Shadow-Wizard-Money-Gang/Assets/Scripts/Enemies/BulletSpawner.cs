@@ -67,22 +67,8 @@ public class BulletSpawner : MonoBehaviour
 
                 if (spawnerType == SpawnerType.StraightDuo)
                 {
-                    // First bullet in the direction of the object
-                    GameObject bullet1 = Instantiate(bullet, transform.position, transform.rotation);
-                    bullet1.GetComponent<Bullet>().speed = speed;
-                    bullet1.GetComponent<Bullet>().bulletLife = bulletLife;
-
-                    // Second bullet in the opposite direction
-                    Quaternion oppositeRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + 180);
-                    GameObject bullet2 = Instantiate(bullet, transform.position, oppositeRotation);
-                    bullet2.GetComponent<Bullet>().speed = speed;
-                    bullet2.GetComponent<Bullet>().bulletLife = bulletLife;
-                }
-                else
-                {
-                    GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
-                    spawnedBullet.GetComponent<Bullet>().speed = speed;
-                    spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+                    spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread1, Vector3.forward));
+                    spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread2, Vector3.forward));
                 }
 
                 if (spawnerType == SpawnerType.Spin)
@@ -95,12 +81,7 @@ public class BulletSpawner : MonoBehaviour
                     spawnedBullet = Instantiate(bullet, transform.position, Quaternion.identity);
                     spawnedBullet.transform.rotation = transform.rotation; 
                 }
-                else
-                {
-                    GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
-                    spawnedBullet.GetComponent<Bullet>().speed = speed;
-                    spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
-                }
+
                 if (spawnerType == SpawnerType.StraightQuad)
                 {
                     spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread1, Vector3.forward));
@@ -108,14 +89,9 @@ public class BulletSpawner : MonoBehaviour
                     spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread3, Vector3.forward));
                     spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread4, Vector3.forward));
                 }   
-                else
-                {
-                    GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
-                    spawnedBullet.GetComponent<Bullet>().speed = speed;
-                    spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
-                }
-                //spawnedBullet.GetComponent<Bullet>().speed = speed;
-                //spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
+
+                spawnedBullet.GetComponent<Bullet>().speed = speed;
+                spawnedBullet.GetComponent<Bullet>().bulletLife = bulletLife;
   
             }
         
