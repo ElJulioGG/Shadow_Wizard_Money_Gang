@@ -68,7 +68,9 @@ public class BulletSpawner : MonoBehaviour
                 if (spawnerType == SpawnerType.StraightDuo)
                 {
                     spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread1, Vector3.forward));
+                    spawnedBullet.GetComponent<Bullet>().speed = speed;
                     spawnedBullet = Instantiate(bullet, transform.position, Quaternion.AngleAxis(angleSpread2, Vector3.forward));
+                    spawnedBullet.GetComponent<Bullet>().speed = speed;
                 }
 
                 if (spawnerType == SpawnerType.Spin)

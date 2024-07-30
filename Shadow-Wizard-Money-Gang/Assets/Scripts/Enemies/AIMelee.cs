@@ -40,7 +40,7 @@ public class AIChase : MonoBehaviour
         {
             // Wandering
             animatorEyes.SetBool("SlimeInRange", false);
-            transform.position = Vector2.MoveTowards(transform.position, waypoint, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, waypoint, wanderingTime * Time.deltaTime);
 
             if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
             {
