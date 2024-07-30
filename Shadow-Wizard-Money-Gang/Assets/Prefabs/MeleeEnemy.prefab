@@ -344,11 +344,11 @@ MonoBehaviour:
   speed: 2
   VisionRange: 5
   animatorEyes: {fileID: 6532460292077894583}
-  wanderingTime: 1
+  wanderingTime: 0.5
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  WanderingArea: 2
+  WanderingArea: 0.8
   StepsInWanderingArea: 0.3
 --- !u!212 &8135034814225496182
 SpriteRenderer:

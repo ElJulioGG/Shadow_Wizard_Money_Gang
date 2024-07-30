@@ -305,11 +305,11 @@ MonoBehaviour:
   speed: 1
   FacingThePlayerDistance: 6
   VisionRange: 7
-  wanderingTime: 1
+  wanderingTime: 0.5
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  WanderingArea: 2
+  WanderingArea: 0.8
   StepsInWanderingArea: 0.3
 --- !u!114 &4944081305634921700
 MonoBehaviour:
