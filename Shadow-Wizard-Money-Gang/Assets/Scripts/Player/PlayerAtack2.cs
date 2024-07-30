@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerAtack2 : MonoBehaviour
 {
     //public GameObject spawnParticles;
+    [SerializeField] private PlayerAtack1 Atack1;
     public GameObject Player;
+    
     public Rigidbody2D playerRb2D;
     private Camera mainCam;
     private Vector3 mousePos;
@@ -17,6 +19,7 @@ public class PlayerAtack2 : MonoBehaviour
     public float timerBetweenFiring;
     [SerializeField] public int ammo = 999;
     private Vector3 newPosition;
+    private bool waitForAtack1 = true;
 
     [SerializeField] private float offsetX = 0;
     [SerializeField] private float offsetY = 0;
@@ -24,6 +27,7 @@ public class PlayerAtack2 : MonoBehaviour
 
     void Start()
     {
+        waitForAtack1 = true;
         mainCam = Camera.main;
     }
 
@@ -47,15 +51,24 @@ public class PlayerAtack2 : MonoBehaviour
                     timer = 0;
                 }
             }
+            if (GameManager.instance.playerSyncAtack)
+            {
+                waitForAtack1 = true;
 
-            if (Input.GetMouseButtonDown(1) && canFire && ammo > 0 && GameManager.instance.playerCanAtack)
+            } else
+            {
+              
+                waitForAtack1 = Atack1.canFire;
+
+            }
+            if (Input.GetMouseButtonDown(1) && canFire && ammo > 0 && GameManager.instance.playerCanAtack&& waitForAtack1)
             {
                 canFire = false;
                 Instantiate(bullet, bulletTransform.position, Quaternion.identity);
                 
                 Vector2 recoilDirection = -direction.normalized;
-                playerRb2D.AddForce(recoilDirection * recoil, ForceMode2D.Force);
-                Debug.Log("Recoil applied: " + (recoilDirection * 200));
+               // playerRb2D.AddForce(recoilDirection * recoil, ForceMode2D.Force);
+                
 
             }
             newPosition = new Vector3(Player.transform.position.x + offsetX, Player.transform.position.y + offsetY, Player.transform.position.z + offsetZ);

@@ -54,8 +54,8 @@ public class PlayerAtack4 : MonoBehaviour
                 Instantiate(bullet, bulletTransform.position, Quaternion.identity);
                
                 Vector2 recoilDirection = -direction.normalized;
-                playerRb2D.AddForce(recoilDirection * recoil, ForceMode2D.Force);
-                Debug.Log("Recoil applied: " + (recoilDirection * 200));
+               //playerRb2D.AddForce(recoilDirection * recoil, ForceMode2D.Force);
+              //  Debug.Log("Recoil applied: " + (recoilDirection * 200));
 
             }
             newPosition = new Vector3(Player.transform.position.x + offsetX, Player.transform.position.y + offsetY, Player.transform.position.z + offsetZ);

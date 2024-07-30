@@ -45,7 +45,7 @@ public class AlchemyManager : MonoBehaviour
     }
     private IEnumerator OutroCourrtine()
     {
-        print("lol");
+      
         animatorCauldron.SetTrigger("Animate");
        
         boton.enabled = false;
@@ -56,12 +56,12 @@ public class AlchemyManager : MonoBehaviour
         yield return new WaitForSeconds(introDuration);
         gameObject.SetActive(false);
         boton.enabled = true;
-        print("lmao");
+        
 
     }
     public void CreatePotion()
     {
-        print("Reroll");
+        
         System.Random random = new System.Random();
         int randomInt = random.Next(0, 10);
    
@@ -76,7 +76,7 @@ public class AlchemyManager : MonoBehaviour
                     hasBrewed = true;
                     messageBuff = "Soy potion: More bullets, less damage";
                     buffManager.Buff1();
-                    print("Potion0");
+                    print(messageBuff);
                 }
                 else
                 {
@@ -91,10 +91,11 @@ public class AlchemyManager : MonoBehaviour
                     GameManager.instance.material2 = GameManager.instance.material2 - 2;
                     GameManager.instance.material3 = GameManager.instance.material3 - 2;
                     GameManager.instance.material4 = GameManager.instance.material4 - 2;
-                    print("Potion1");
+                   
                     messageBuff = "GainsMaxxer Potion: Chunky body, bad mobility";
                     buffManager.Buff2();
                     hasBrewed = true;
+                    print(messageBuff);
                 }
                 else
                 {
@@ -108,10 +109,11 @@ public class AlchemyManager : MonoBehaviour
                     GameManager.instance.material2 = GameManager.instance.material2 - 1;
                     GameManager.instance.material3 = GameManager.instance.material3 - 3;
                     GameManager.instance.material4 = GameManager.instance.material4 - 3;
-                    print("Potion2");
+                    
                     buffManager.Buff3();
-                    messageBuff = ": Double Projectiles!";
+                    messageBuff = ": Double Projectiles!, don't get hit";
                     hasBrewed = true;
+                    print(messageBuff);
                 }
                 else
                 {
@@ -124,10 +126,11 @@ public class AlchemyManager : MonoBehaviour
                 {
                     GameManager.instance.material3 = GameManager.instance.material3 - 4;
                     GameManager.instance.material4 = GameManager.instance.material4 - 3;
-                    print("Potion3");
+                    
                     messageBuff = ": PiercingShot + dmg a bit down";
                     buffManager.Buff4();
                     hasBrewed = true;
+                    print(messageBuff);
                 }
                 else
                 {
@@ -139,10 +142,11 @@ public class AlchemyManager : MonoBehaviour
                 {
                     GameManager.instance.material1 = GameManager.instance.material1 - 2;
                     GameManager.instance.material4 = GameManager.instance.material4 - 5;
-                    print("Potion4");
+                  
                     messageBuff = "Beeg flufin blast: B";
                     buffManager.Buff5();
                     hasBrewed = true;
+                    print(messageBuff);
                 }
                 else
                 {
@@ -158,7 +162,7 @@ public class AlchemyManager : MonoBehaviour
                     hasBrewed = true;
                     messageBuff = "I am speed - damage";
                     buffManager.Buff6();
-                    print("Potion5");
+                    print(messageBuff);
                 }
                 else
                 {
@@ -170,8 +174,11 @@ public class AlchemyManager : MonoBehaviour
                 {
                     GameManager.instance.material1 = GameManager.instance.material1 - 7;
                     GameManager.instance.material4 = GameManager.instance.material4 - 1;
-                    print("Potion6");
+                   
+                    messageBuff = "Synced attacks";
+                    buffManager.Buff7();
                     hasBrewed = true;
+                    print(messageBuff);
                 }
                 else
                 ///qwdawda
@@ -185,7 +192,9 @@ public class AlchemyManager : MonoBehaviour
                     GameManager.instance.material2 = GameManager.instance.material2 - 3;
                     GameManager.instance.material3 = GameManager.instance.material3 - 3;
                     hasBrewed = true;
-                    print("Potion7");
+                    messageBuff = "Shield UP, take a bit of damage";
+                    buffManager.Buff8();
+                    print(messageBuff);
                 }
                 else
                 {
@@ -199,7 +208,9 @@ public class AlchemyManager : MonoBehaviour
                     GameManager.instance.material2 = GameManager.instance.material2 - 4;
                     GameManager.instance.material3 = GameManager.instance.material3 - 4;
                     GameManager.instance.material4 = GameManager.instance.material4 - 4;
-                    print("Potion8");
+                    messageBuff = "All Stats UP!!! Lucky You!!!";
+                    buffManager.Buff9();
+                    print(messageBuff);
                     hasBrewed = true;
                 }
                 else
@@ -214,8 +225,11 @@ public class AlchemyManager : MonoBehaviour
                     GameManager.instance.material2 = GameManager.instance.material2 - 1;
                     GameManager.instance.material3 = GameManager.instance.material3 - 4;
                     GameManager.instance.material4 = GameManager.instance.material4 - 2;
-                    print("Potion9");
+                    
                     hasBrewed = true;
+                    messageBuff = "Bullet Hell!!! Worse Roll, Smaller Htibox";
+                    print(messageBuff);
+                    buffManager.Buff10();
                 }
                 else
                 {

@@ -10,9 +10,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] public int playerDamageReceived = 1;
     [SerializeField] public int playerMaxHealth = 3;
     [SerializeField] public int playerDamage1 = 20;
-    [SerializeField] public int playerDamage2 = 10;
+    [SerializeField] public float playerDamage2 = 10;
     [SerializeField] public int playerBulletForce = 10;
     [Header("Player Conditions")]
+    [SerializeField] public bool playerSyncAtack = false;
     [SerializeField] public bool playerIsHit;
     [SerializeField] public bool playerInvinsibility;
     [SerializeField] public int currentPlayerWeapon = 0;

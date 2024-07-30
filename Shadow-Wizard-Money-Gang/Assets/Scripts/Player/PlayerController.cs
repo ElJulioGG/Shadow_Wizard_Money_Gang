@@ -18,8 +18,9 @@ public class PlayerController : MonoBehaviour
     //[SerializeField] private UI_Inventory uiInventory; //Inventory stuff
     [SerializeField] private GameObject spritePlayer;
     [SerializeField] private GameObject spriteHands1;
-   
-    
+    [SerializeField] private GameObject canvasDeath;
+
+
     [SerializeField] private UI_CraftingSystem uiCraftingSystem; //Crafing system stuff
     private NpcController npc;
 
@@ -169,6 +170,10 @@ public int getShadowHornQuantity()
             }
             ChangeOrientation(movement.x);
         }
+        if(GameManager.instance.playerHealth <=0 || GameManager.instance.playerDied)
+        {
+            Die();
+        }
     }
 
     private void FixedUpdate()
@@ -210,7 +215,7 @@ public int getShadowHornQuantity()
       
         GameManager.instance.playerCanAtack = false;
         playerAnimator.SetBool("IsRolling", true);
-        print("RollingTrue!");
+        
         isDashing = true;
         GameManager.instance.playerInvinsibility = true;
         rb.velocity = new Vector2(movement.x * dashMoveSpeed, movement.y * dashMoveSpeed);
@@ -231,7 +236,7 @@ public int getShadowHornQuantity()
         GameManager.instance.playerCanAtack = true;
         isDashing = false;
         playerAnimator.SetBool("IsRolling", false);
-        print("RollingFalse!");
+       
     }
     private IEnumerator HitRecovery()
     {
@@ -301,6 +306,20 @@ public int getShadowHornQuantity()
         {
             return false;
         }
+    }
+    private void Die()
+    {
+        GameManager.instance.playerCanInput = false;
+        GameManager.instance.playerCanMove = false;
+        GameManager.instance.playerCanAtack = false;
+        spritePlayer.SetActive(false);
+        spritePlayer.SetActive(false);
+        canvasDeath.SetActive(true);
+        GameManager.instance.playerDied = true;
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.PlayFootSteps("PlayerDeath"); 
+            AudioManager.instance.PlayFootSteps("PlayerDeathJingle");
+        Destroy(gameObject);
     }
 
 
