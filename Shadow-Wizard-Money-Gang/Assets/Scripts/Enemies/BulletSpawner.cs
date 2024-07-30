@@ -73,6 +73,8 @@ public class BulletSpawner : MonoBehaviour
                     spawnedBullet.GetComponent<Bullet>().speed = speed;
                 }
 
+
+
                 if (spawnerType == SpawnerType.Spin)
                 {
                     GameObject spawnedBullet = Instantiate(bullet, transform.position, transform.rotation);
