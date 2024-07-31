@@ -8,7 +8,12 @@ public class HealthBar : MonoBehaviour
 
     List<HearthState> hearts = new List<HearthState>();
 
- 
+    private void FixedUpdate()
+    {
+        drawHearts();
+
+
+    }
     private void OnEnable()
     {
         PlayerController.OnPlayerDamaged += drawHearts;

@@ -19,6 +19,9 @@ TagManager:
   - TutorialRespawn2
   - Enemy
   - Target
+  - BaseTeleport3
+  - BaseTeleport4
+  - BaseTeleport5
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,7 @@ public class MusicManager : MonoBehaviour
     {
         // if escena is "menu" then play(MenuMusic :p)
         //else
-        setMusic("Aftermath");
+       // setMusic("Aftermath");
     }
     public void setMusic(string name)
     {

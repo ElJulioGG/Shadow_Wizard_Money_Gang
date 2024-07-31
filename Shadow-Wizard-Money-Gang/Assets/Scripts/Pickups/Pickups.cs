@@ -6,6 +6,7 @@ public class Pickups : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] private int pickupType;
+    [SerializeField] private string sound;
 
     void Start()
     {
@@ -41,8 +42,14 @@ public class Pickups : MonoBehaviour
             case 3:
                 GameManager.instance.material4++;
                 break;
+            case 4:
+                if(GameManager.instance.playerHealth < GameManager.instance.playerMaxHealth)
+                {
+                    GameManager.instance.playerHealth++;
+                }
+                break;
         }
-        AudioManager.instance.PlaySfx4("ImpactProyectile");
+        AudioManager.instance.PlaySfx(sound);
         pickupDestroy();
     }
     private void pickupDestroy()

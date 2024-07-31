@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BaseDefend : MonoBehaviour
 {
     [SerializeField] private GameObject[] spawners;
     [SerializeField]private float defenseDuration;
     [SerializeField] private GameObject canvasDarken;
+    [SerializeField] private AreaManager areaManager;
     public bool musicPlayed = false;
     public bool victoryMusicPlayed = false;
-    private bool playerHasEntered;
+    [SerializeField] private bool playerHasEntered;
     private float defenseTimer;
+    [SerializeField] private GameObject arrow;
+    public UnityEvent areaEvent;
 
     void Start()
     {
@@ -29,6 +33,7 @@ public class BaseDefend : MonoBehaviour
     {
         if (playerHasEntered)
         {
+            areaManager.baseClose();
             canvasDarken.SetActive(true);
             if (!musicPlayed)
             {
@@ -62,20 +67,23 @@ public class BaseDefend : MonoBehaviour
                 {
                     spawner.SetActive(false);
                 }
-                GameManager.instance.BlockOutsideBase2A = false;
                 canvasDarken.SetActive(false);
+                areaManager.baseWin();
                 
                 if (!victoryMusicPlayed)
                 {
-                   
+
                     AudioManager.instance.PlaySfx2("DefendVictory");
                     AudioManager.instance.musicSource.Stop();
                     MusicManager.instance.musicDelayTransition("Aftermath", 4f);
-                    
                     victoryMusicPlayed = true;
                 }
-                
+               
+                GameManager.instance.playerCanAlchemy = true;
+                arrow.SetActive(true);
+                areaEvent.Invoke();
                 //Destroy(gameObject, 10f);
+                gameObject.SetActive(false);
                 
             }
             defenseTimer += Time.deltaTime;

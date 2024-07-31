@@ -19,7 +19,17 @@ public class AreaManager : MonoBehaviour
             { 2, () => GameManager.instance.blockTower2 },
             { 3, () => GameManager.instance.BlockOutsideBase1A},
             { 4, () => GameManager.instance.BlockOutsideBase2A },
-            //{ 5, () => GameManager.instance.BlockOutsideBase2A }
+            { 5, () => GameManager.instance.BlockOutsideBase1B },
+            { 6, () => GameManager.instance.BlockOutsideBase2B },
+            { 7, () => GameManager.instance.BlockOutsideBase3B },
+            { 8, () => GameManager.instance.BlockOutsideBase1C },
+            { 9, () => GameManager.instance.BlockOutsideBase2C },
+            { 10, () => GameManager.instance.BlockOutsideBase3C },
+            { 11, () => GameManager.instance.BlockOutsideBase1D },
+            { 12, () => GameManager.instance.BlockOutsideBase2D },
+            { 13, () => GameManager.instance.BlockOutsideBase3D },
+            { 14, () => GameManager.instance.BlockOutsideBase1E },
+            { 15, () => GameManager.instance.BlockOutsideBase2E }
         };
     }//ad
     /// <summary>
@@ -40,7 +50,7 @@ public class AreaManager : MonoBehaviour
         }
 
         tutorialOpen();
-        baseWin();
+        //baseWin();
     }
     void tutorialOpen()
     {
@@ -59,14 +69,74 @@ public class AreaManager : MonoBehaviour
             GameManager.instance.blockTower1 = false;
         }
     }
-    void baseWin()
+    public void baseWin()
     {
-        
-        if (GameManager.instance.basesDefended >=1)
-        {
-            GameManager.instance.BlockOutsideBase1A = false;
-            GameManager.instance.BlockOutsideBase2A = false;
+        switch (GameManager.instance.basesDefended) {
+            case 0:
+                GameManager.instance.BlockOutsideBase1A = false;
+                GameManager.instance.BlockOutsideBase2A = false;
+                GameManager.instance.BlockOutsideBase1B = false;
+                GameManager.instance.blockTower2 = false;
+                GameManager.instance.blockTower1 = true;
+                GameManager.instance.basesDefended++;
+                break;
+            case 1:
+                GameManager.instance.BlockOutsideBase1B = false;
+                GameManager.instance.BlockOutsideBase2B = false;
+                GameManager.instance.BlockOutsideBase3B = false;
+                GameManager.instance.BlockOutsideBase1C = false;
+                GameManager.instance.blockTower2 = false;
+                GameManager.instance.blockTower1 = true;
+                GameManager.instance.basesDefended++;
+                break;
+            case 2:
+                GameManager.instance.BlockOutsideBase1C = false;
+                GameManager.instance.BlockOutsideBase2C = false;
+                GameManager.instance.BlockOutsideBase3C = false;
+                GameManager.instance.BlockOutsideBase1D = false;
+                GameManager.instance.blockTower2 = false;
+                GameManager.instance.blockTower1 = true;
+                GameManager.instance.basesDefended++;
+                break;
+            case 3:
+                GameManager.instance.BlockOutsideBase1D = false;
+                GameManager.instance.BlockOutsideBase2D = false;
+                GameManager.instance.BlockOutsideBase3D = false;
+                GameManager.instance.BlockOutsideBase1E = false;
+                GameManager.instance.blockTower2 = false;
+                GameManager.instance.blockTower1 = true;
+                GameManager.instance.basesDefended++;
+                break;
+            case 4:
+                GameManager.instance.BlockOutsideBase1E = false;
+                GameManager.instance.BlockOutsideBase2E = false;
+                GameManager.instance.TeleportBoss = true;
+                GameManager.instance.blockTower2 = false;
+                GameManager.instance.blockTower1 = true;
+                GameManager.instance.basesDefended++;
+                break;
         }
+            
+    }
+    
+    public void baseClose()
+    {
+        GameManager.instance.BlockOutsideBase1A = true;
+        GameManager.instance.BlockOutsideBase2A = true;
+        GameManager.instance.BlockOutsideBase1B = true;
+        GameManager.instance.BlockOutsideBase2B = true;
+        GameManager.instance.BlockOutsideBase3B = true;
+        GameManager.instance.BlockOutsideBase1C = true;
+        GameManager.instance.BlockOutsideBase2C = true;
+        GameManager.instance.BlockOutsideBase3C = true;
+        GameManager.instance.BlockOutsideBase1D = true;
+        GameManager.instance.BlockOutsideBase2D = true;
+        GameManager.instance.BlockOutsideBase3D = true;
+        GameManager.instance.BlockOutsideBase1E = true;
+        GameManager.instance.BlockOutsideBase2E = true;
+
+        GameManager.instance.blockTower2 = true;
+
     }
 }
 

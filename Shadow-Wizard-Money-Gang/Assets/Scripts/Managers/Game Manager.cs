@@ -53,6 +53,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool blockTower2 = true;
     [SerializeField] public bool BlockOutsideBase1A = true;
     [SerializeField] public bool BlockOutsideBase2A = true;
+    [SerializeField] public bool BlockOutsideBase1B = true;
+    [SerializeField] public bool BlockOutsideBase2B = true;
+    [SerializeField] public bool BlockOutsideBase3B = true;
+    [SerializeField] public bool BlockOutsideBase1C = true;
+    [SerializeField] public bool BlockOutsideBase2C = true;
+    [SerializeField] public bool BlockOutsideBase3C = true;
+    [SerializeField] public bool BlockOutsideBase1D = true;
+    [SerializeField] public bool BlockOutsideBase2D = true;
+    [SerializeField] public bool BlockOutsideBase3D = true;
+    [SerializeField] public bool BlockOutsideBase1E = true;
+    [SerializeField] public bool BlockOutsideBase2E = true;
+    [SerializeField] public bool TeleportBoss = false;
+    [SerializeField] public int LastTeleportedFrom = 0;
 
 
     private void Awake()

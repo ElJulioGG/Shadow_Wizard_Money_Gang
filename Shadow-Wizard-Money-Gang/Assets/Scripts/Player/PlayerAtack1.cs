@@ -85,6 +85,7 @@ public class PlayerAtack1 : MonoBehaviour
     }
     private void activateHitbox()
     {
+        AudioManager.instance.PlaySfx("Blast");
         AtackSprite.SetActive(true);
         boxCollider2D.SetActive(true);
         Invoke("deactivateHitbox", hitboxDuration);

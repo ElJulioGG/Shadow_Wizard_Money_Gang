@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyParticles: {fileID: 3998921338395101957, guid: b4d7e4ba3ef668f48807b475e349a156, type: 3}
   rubleSprite: {fileID: 21300000, guid: 564d3a2f5ee3bb44b83c5ff70f7249da, type: 3}
+  audioName: RockDestroy
 --- !u!212 &4050375328792369364
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -90,7 +91,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 40
   m_Sprite: {fileID: 21300000, guid: b0d24a7756745ef47a76440abfc1e821, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
