@@ -298,7 +298,7 @@ MonoBehaviour:
   enemyHealth: 20
   atack1Inmune: 0
   atack2Inmune: 0
-  damageParticlesPrefab: {fileID: 0}
+  damageParticlesPrefab: {fileID: 3998921338395101957, guid: c3d7cd309e76c50458ef7cbc9549ac2c, type: 3}
   pushForceMelee: 50
   pushForceBullet: 25
 --- !u!114 &-3206560533864175404

@@ -27,7 +27,7 @@ public class BossPhases : MonoBehaviour
     private void Start()
     {
 
-
+        AudioManager.instance.PlayMusic("BossMusic");
         player = GameObject.FindGameObjectWithTag("Player");
         ED = GetComponent<EnemyDamage>();
         EnemyHealth = ED.enemyHealth;

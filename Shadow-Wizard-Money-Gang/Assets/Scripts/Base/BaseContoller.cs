@@ -45,6 +45,7 @@ public class BaseContoller : MonoBehaviour
                 shake.StartShake();
               textForeground.text = health.ToString();
               text2.text = health.ToString();
+            AudioManager.instance.PlaySfx("BaseHit");
         }
        
     }
@@ -58,6 +59,7 @@ public class BaseContoller : MonoBehaviour
             textForeground.text = health.ToString();
             text2.text = health.ToString();
             timer = 0f;
+            AudioManager.instance.PlaySfx("BaseHit");
         }
         timer += Time.deltaTime;
     }
