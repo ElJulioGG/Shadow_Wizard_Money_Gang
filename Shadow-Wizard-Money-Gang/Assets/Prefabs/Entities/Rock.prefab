@@ -50,6 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destroyParticles: {fileID: 3998921338395101957, guid: b4d7e4ba3ef668f48807b475e349a156, type: 3}
   rubleSprite: {fileID: 21300000, guid: 564d3a2f5ee3bb44b83c5ff70f7249da, type: 3}
+  audioName: RockDestroy
 --- !u!212 &4050375328792369364
 SpriteRenderer:
   m_ObjectHideFlags: 0

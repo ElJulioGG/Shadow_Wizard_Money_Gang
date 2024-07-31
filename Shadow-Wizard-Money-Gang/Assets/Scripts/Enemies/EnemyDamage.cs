@@ -35,6 +35,7 @@ public class EnemyDamage : MonoBehaviour
                 print("lol");
                 enemyHealth = enemyHealth - GameManager.instance.playerDamage1;
                 pushAwayFromPlayer(pushForceMelee);
+                AudioManager.instance.PlaySfx("EnemyDeath2");
             }
         }
         if (collision.tag == "Atack2"&& !atack2Inmune)
@@ -43,6 +44,7 @@ public class EnemyDamage : MonoBehaviour
             {
                 enemyHealth = enemyHealth - GameManager.instance.playerDamage2;
                 pushAwayFromPlayer(pushForceBullet);
+                AudioManager.instance.PlaySfx("EnemyDeath2");
             }
         }
     }
@@ -72,6 +74,8 @@ public class EnemyDamage : MonoBehaviour
     }
     private void death()
     {
+        Instantiate(damageParticlesPrefab, transform.position, Quaternion.identity);
+        AudioManager.instance.PlaySfx("EnemyDeath1");
         Destroy(gameObject);
     }
    

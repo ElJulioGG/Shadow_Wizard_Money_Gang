@@ -7,6 +7,7 @@ public class AreaTriggerEvents : MonoBehaviour
 {
     [Header("Spanwers")]
     [SerializeField] private GameObject[] spawners;
+    [SerializeField]  private GameObject caldero;
     // Start is called before the first frame update
 
     public UnityEvent areaTriggerEvent;
@@ -41,6 +42,10 @@ public class AreaTriggerEvents : MonoBehaviour
     public void stopAllSpawners()
     {
         foreach (GameObject spawner in spawners) { spawner.SetActive(false); }
+    }
+    public void cerrarCaldero()
+    {
+       caldero.SetActive(false);
     }
 
 }

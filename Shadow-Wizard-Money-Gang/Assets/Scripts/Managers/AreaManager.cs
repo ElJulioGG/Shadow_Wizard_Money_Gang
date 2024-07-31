@@ -40,7 +40,7 @@ public class AreaManager : MonoBehaviour
         }
 
         tutorialOpen();
-        baseWin();
+        //baseWin();
     }
     void tutorialOpen()
     {
@@ -59,14 +59,18 @@ public class AreaManager : MonoBehaviour
             GameManager.instance.blockTower1 = false;
         }
     }
-    void baseWin()
+    public void baseWin()
     {
-        
-        if (GameManager.instance.basesDefended >=1)
-        {
             GameManager.instance.BlockOutsideBase1A = false;
-            GameManager.instance.BlockOutsideBase2A = false;
-        }
+            GameManager.instance.BlockOutsideBase2A = false;   
+            GameManager.instance.blockTower2 = false;
+    }
+    public void baseClose()
+    {
+        GameManager.instance.BlockOutsideBase1A = true;
+        GameManager.instance.BlockOutsideBase2A = true;
+        GameManager.instance.blockTower2 = true;
+
     }
 }
 

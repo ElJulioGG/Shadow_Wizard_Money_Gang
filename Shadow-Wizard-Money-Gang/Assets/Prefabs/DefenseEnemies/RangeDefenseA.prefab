@@ -59,6 +59,9 @@ MonoBehaviour:
   restTime: 0.5
   stagger: 1
   oscillate: 1
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   distanceBullet: 10
 --- !u!212 &8003925810959334545
 SpriteRenderer:
@@ -128,6 +131,9 @@ MonoBehaviour:
   FacingThePlayerDistance: 10
   VisionRange: 50
   wanderingTime: 0
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   WanderingArea: 3
   StepsInWanderingArea: 0.5
 --- !u!70 &3696377651298461794
@@ -207,7 +213,7 @@ MonoBehaviour:
   enemyHealth: 20
   atack1Inmune: 0
   atack2Inmune: 0
-  damageParticlesPrefab: {fileID: 0}
+  damageParticlesPrefab: {fileID: 3998921338395101957, guid: c3d7cd309e76c50458ef7cbc9549ac2c, type: 3}
   pushForceMelee: 125
   pushForceBullet: 60
 --- !u!1 &6950708564535972232

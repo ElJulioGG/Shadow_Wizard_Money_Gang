@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8908577587429174922}
   - component: {fileID: 4735176765800388472}
   - component: {fileID: 4927211133939716819}
+  - component: {fileID: 4442454109816046849}
   m_Layer: 0
   m_Name: StaticTorretEnemy
   m_TagString: Untagged
@@ -55,6 +56,11 @@ MonoBehaviour:
   RotationSpeed: 0
   angleSpread1: 180
   angleSpread2: 0
+  angleSpread3: 0
+  angleSpread4: 0
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!212 &4735176765800388472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -97,7 +103,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 3625043607559282579, guid: 19fb86013d8c24d6cb8410c0aadf30fa, type: 3}
-  m_Color: {r: 0.35613203, g: 0, b: 0.41509432, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,3 +140,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &4442454109816046849
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8204341067064147612}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b32acea36a9d234899e24265e45e41e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

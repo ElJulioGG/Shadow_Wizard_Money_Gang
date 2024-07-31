@@ -318,7 +318,7 @@ public int getShadowHornQuantity()
         GameManager.instance.playerDied = true;
         AudioManager.instance.musicSource.Stop();
         AudioManager.instance.PlayFootSteps("PlayerDeath"); 
-            AudioManager.instance.PlayFootSteps("PlayerDeathJingle");
+        AudioManager.instance.PlayFootSteps("PlayerDeathJingle");
         Destroy(gameObject);
     }
 
