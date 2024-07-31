@@ -1,6 +1,12 @@
 fileFormatVersion: 2
-guid: 6ba2f3cfcb6e46344b273b3f19e5754e
+<<<<<<<< Updated upstream:Shadow-Wizard-Money-Gang/Assets/Animations/CauldronLightAnimation.anim.meta
+guid: e158ef069a35f12439e66fbbc2d5efb1
 NativeFormatImporter:
+========
+guid: 1761928817273ff4880fb44571aee1f4
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> Stashed changes:Shadow-Wizard-Money-Gang/Assets/Sprites/Pickups.meta
   externalObjects: {}
   mainObjectFileID: 7400000
   userData: 
