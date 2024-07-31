@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossPhases : MonoBehaviour
 {
+    [SerializeField] GameObject gameOver;
     private GameObject player;
     [SerializeField] private GameObject bulletPrefab;
     private int burstCount;
@@ -120,11 +121,11 @@ public class BossPhases : MonoBehaviour
                 print("FASE 4 :V");
             }
             else
-                if (EnemyHealth >= 0)
+            if (EnemyHealth > 0)
             {
                 animatorBoss.SetTrigger("Fase5");
                 burstCount = 3;
-                projectilesPerBurst = 28;
+                projectilesPerBurst = 18;
                 angleSpread = 359;
                 startingDistance = 0.1f;
                 timeBetweenBursts = 0.5f;
@@ -138,6 +139,14 @@ public class BossPhases : MonoBehaviour
                     timer = 0;
                 }
                 print("FASE 5 :V");
+            }
+            if (EnemyHealth<= 0)
+            {
+                GameManager.instance.playerCanInput = false;
+                GameManager.instance.playerCanMove = false;
+                GameManager.instance.playerInvinsibility= true;
+                gameOver.SetActive(true);
+
             }
         }
 

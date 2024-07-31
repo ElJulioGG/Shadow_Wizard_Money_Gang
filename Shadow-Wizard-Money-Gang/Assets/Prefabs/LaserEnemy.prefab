@@ -267,6 +267,7 @@ GameObject:
   - component: {fileID: 8318754716591235526}
   - component: {fileID: 140759406276742687}
   - component: {fileID: 5237876155752474538}
+  - component: {fileID: 4020933840484058618}
   m_Layer: 0
   m_Name: LaserEnemy
   m_TagString: Enemy
@@ -306,8 +307,8 @@ MonoBehaviour:
   FacingThePlayerDistance: 6
   VisionRange: 7
   wanderingTime: 0.5
-  animatorEyes: {fileID: 0}
-  animatorSprite: {fileID: 0}
+  animatorEyes: {fileID: 4020933840484058618}
+  animatorSprite: {fileID: 4020933840484058618}
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -467,3 +468,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!95 &4020933840484058618
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5942645980055693383}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 00719f1b13609164ba735449f8f8f140, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
