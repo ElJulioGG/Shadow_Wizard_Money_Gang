@@ -51,6 +51,7 @@ public class AreaTriggerEvents : MonoBehaviour
     {
         AudioManager.instance.musicSource.Stop();
         AudioManager.instance.PlayMusic("Explore&Fight");
+        gameObject.SetActive(false);
     }
 
 }

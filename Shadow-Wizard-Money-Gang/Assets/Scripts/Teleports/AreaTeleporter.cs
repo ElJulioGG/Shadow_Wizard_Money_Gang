@@ -26,7 +26,7 @@ public class AreaTeleporter : MonoBehaviour
             destination = null;
             if (gameObject.tag == "TeleportTower")
             { 
-                switch (GameManager.instance.basesDefended)
+                switch (GameManager.instance.LastTeleportedFrom)
                 {
                     case 0:
                         destination = GameObject.FindGameObjectWithTag("BaseTeleport1");

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BaseDefend : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BaseDefend : MonoBehaviour
     [SerializeField] private bool playerHasEntered;
     private float defenseTimer;
     [SerializeField] private GameObject arrow;
+    public UnityEvent areaEvent;
 
     void Start()
     {
@@ -31,6 +33,7 @@ public class BaseDefend : MonoBehaviour
     {
         if (playerHasEntered)
         {
+            areaManager.baseClose();
             canvasDarken.SetActive(true);
             if (!musicPlayed)
             {
@@ -66,6 +69,7 @@ public class BaseDefend : MonoBehaviour
                 }
                 canvasDarken.SetActive(false);
                 areaManager.baseWin();
+                
                 if (!victoryMusicPlayed)
                 {
 
@@ -77,6 +81,7 @@ public class BaseDefend : MonoBehaviour
                
                 GameManager.instance.playerCanAlchemy = true;
                 arrow.SetActive(true);
+                areaEvent.Invoke();
                 //Destroy(gameObject, 10f);
                 gameObject.SetActive(false);
                 
