@@ -398,6 +398,7 @@ GameObject:
   - component: {fileID: 48033194}
   - component: {fileID: 48033193}
   - component: {fileID: 48033192}
+  - component: {fileID: 48033196}
   m_Layer: 5
   m_Name: ButtonExit
   m_TagString: Untagged
@@ -498,10 +499,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 300004207}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 48033196}
+        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_MethodName: QuitGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -510,9 +511,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1997093373}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+        m_MethodName: 
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -522,9 +523,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 557578710}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: MenuMethods, Assembly-CSharp
-        m_MethodName: PlayClickSound
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -572,6 +573,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 48033190}
   m_CullTransparentMesh: 1
+--- !u!114 &48033196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 48033190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57fe832f94a547c478da27f1a7144165, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &108923957
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +813,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: JulioScene
+          m_StringArgument: FinalScene
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 557578710}
@@ -3024,8 +3037,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 79d3ad11083784f4fac88ba70ee61157, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 61a9523b9ff546a449084ccbf40a9b2a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3247,7 +3260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1102, y: -105}
+  m_AnchoredPosition: {x: 1004, y: -208}
   m_SizeDelta: {x: 1579.9999, y: 554.9615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1997093375
