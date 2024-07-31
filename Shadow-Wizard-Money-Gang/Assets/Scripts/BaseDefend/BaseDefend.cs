@@ -12,6 +12,7 @@ public class BaseDefend : MonoBehaviour
     public bool victoryMusicPlayed = false;
     [SerializeField] private bool playerHasEntered;
     private float defenseTimer;
+    [SerializeField] private GameObject arrow;
 
     void Start()
     {
@@ -63,7 +64,6 @@ public class BaseDefend : MonoBehaviour
                 {
                     spawner.SetActive(false);
                 }
-                
                 canvasDarken.SetActive(false);
                 areaManager.baseWin();
                 if (!victoryMusicPlayed)
@@ -74,8 +74,9 @@ public class BaseDefend : MonoBehaviour
                     MusicManager.instance.musicDelayTransition("Aftermath", 4f);
                     victoryMusicPlayed = true;
                 }
-
+               
                 GameManager.instance.playerCanAlchemy = true;
+                arrow.SetActive(true);
                 //Destroy(gameObject, 10f);
                 gameObject.SetActive(false);
                 

@@ -47,5 +47,10 @@ public class AreaTriggerEvents : MonoBehaviour
     {
        caldero.SetActive(false);
     }
+    public void musicExploreAndFigth()
+    {
+        AudioManager.instance.musicSource.Stop();
+        AudioManager.instance.PlayMusic("Explore&Fight");
+    }
 
 }
