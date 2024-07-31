@@ -12,6 +12,9 @@ public class AIMultyShot : MonoBehaviour
     public float wanderingTime;
     private float timer = 0f;
     //Wandering
+    [SerializeField] private Animator animatorEyes;
+    [SerializeField] private Animator animatorSprite;
+
     [SerializeField]
     float WanderingArea;
     [SerializeField]
@@ -28,6 +31,22 @@ public class AIMultyShot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        float rotz = transform.rotation.eulerAngles.z;
+
+        if (rotz >= 90 && rotz <= 270)
+        {
+            print(rotz);
+            animatorEyes.SetBool("Reverse", true);
+            animatorSprite.SetBool("Reverse", true);
+        }
+        else
+        {
+            animatorEyes.SetBool("Reverse", false);
+            animatorSprite.SetBool("Reverse", false);
+        }
+
+
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
 
@@ -37,6 +56,7 @@ public class AIMultyShot : MonoBehaviour
         //Wandering
         if (distance > VisionRange || CanSeePlayer(distance) == false)
         {
+            animatorEyes.SetBool("GhostInRange", false);
             transform.position = Vector2.MoveTowards(transform.position, waypoint, wanderingTime * Time.deltaTime);
             if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
             {
@@ -47,6 +67,7 @@ public class AIMultyShot : MonoBehaviour
         //Vision
         if (distance > FacingThePlayerDistance && distance < VisionRange && CanSeePlayer(distance))
         {
+            animatorEyes.SetBool("GhostInRange", true);
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
         }
 

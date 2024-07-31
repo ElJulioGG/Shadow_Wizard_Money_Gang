@@ -123,6 +123,63 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &26304425
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3487863488874107029, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_Name
+      value: RangeEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.854366
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.9904933
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6662183624327381060, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 08f75f0299481ec4bab5113f8933f69f, type: 3}
 --- !u!1 &43338200
 GameObject:
   m_ObjectHideFlags: 0
@@ -1625,6 +1682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ef145a5570de446a40f639e10d8764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Atack1: {fileID: 0}
   Player: {fileID: 1832152190}
   playerRb2D: {fileID: 1832152198}
   bullet: {fileID: 8229686149710853612, guid: 12208746e2309e044a9269e17d130ea8, type: 3}
@@ -1807,6 +1865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97d85cfc8d6b3d64aaaa95a572286bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HandsSprite: {fileID: 0}
   AtackSprite: {fileID: 311411880}
   AtackAnimator: {fileID: 311411883}
   Player: {fileID: 1832152190}
@@ -3559,7 +3618,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1205434320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4502,6 +4561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfItemWorld: {fileID: 8869230028777714577, guid: 4205d96c740de084e9a327fa69400fc4, type: 3}
+  pfUI_Item: {fileID: 0}
   swordSprite: {fileID: 21300018, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
   ghastTearSprite: {fileID: 21300032, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
   spiderEyeSprite: {fileID: 21300058, guid: 1e627bcafe9e32d40ad554880f36b5eb, type: 3}
@@ -4630,6 +4690,12 @@ MonoBehaviour:
   speed: 2
   FacingThePlayerDistance: 6
   VisionRange: 8
+  wanderingTime: 0
+  animatorEyes: {fileID: 0}
+  animatorSprite: {fileID: 0}
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   WanderingArea: 3
   StepsInWanderingArea: 0.5
 --- !u!114 &1749848499
@@ -4820,6 +4886,12 @@ MonoBehaviour:
   speed: 2
   FacingThePlayerDistance: 5.5
   VisionRange: 8
+  wanderingTime: 0
+  animatorEyes: {fileID: 0}
+  animatorSprite: {fileID: 0}
+  wallLayerMask:
+    serializedVersion: 2
+    m_Bits: 0
   WanderingArea: 3
   StepsInWanderingArea: 0.5
 --- !u!114 &1758085949
@@ -5276,7 +5348,10 @@ MonoBehaviour:
   dashDuration: 0.5
   dashCooldown: 1
   hitRecoveryDuration: 2
-  uiInventory: {fileID: 1893846066}
+  spritePlayer: {fileID: 0}
+  spriteHands1: {fileID: 0}
+  canvasDeath: {fileID: 0}
+  uiCraftingSystem: {fileID: 0}
   playerAnimator: {fileID: 1254803010}
   isDashing: 0
   movement: {x: 0, y: 0}
@@ -5540,24 +5615,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 3
+  playerDamageReceived: 1
   playerMaxHealth: 3
   playerDamage1: 20
   playerDamage2: 10
+  playerBulletForce: 10
+  playerSyncAtack: 0
   playerIsHit: 0
   playerInvinsibility: 0
   currentPlayerWeapon: 0
   playerDied: 0
   playerCanInput: 1
+  playerCanMove: 1
   weaponChange: 1
+  playerCanAtack: 1
   playerIsShadow: 0
   playerIsInDialog: 0
   playerCanDialog: 0
+  playerCanAlchemy: 0
+  playerPiercingShot: 0
+  defendingBase: 0
+  exploringAndFighting: 0
+  brewingPotions: 0
+  figthingBoss: 0
   activeCamera: 0
   material1: 0
   material2: 0
   material3: 0
   material4: 0
   basesDefended: 0
+  blockPeCausa: 1
+  blockTower1: 1
+  blockTower2: 1
+  BlockOutsideBase1A: 1
+  BlockOutsideBase2A: 1
 --- !u!4 &1934909491
 Transform:
   m_ObjectHideFlags: 0
@@ -5878,3 +5969,4 @@ SceneRoots:
   - {fileID: 1205434323}
   - {fileID: 1836874865}
   - {fileID: 693391614}
+  - {fileID: 26304425}

@@ -12,6 +12,8 @@ public class AIShoot : MonoBehaviour
     private float distance;
     public float wanderingTime;
     private float timer = 0f;
+    [SerializeField] private Animator animatorEyes;
+    [SerializeField] private Animator animatorSprite;
     [SerializeField] private LayerMask wallLayerMask;
     //Wandering
     [SerializeField]
@@ -30,6 +32,20 @@ public class AIShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        float rotz = transform.rotation.eulerAngles.z;
+
+        if (rotz >= 90 && rotz <= 270)
+        {
+            print(rotz);
+            animatorEyes.SetBool("Reverse", true);
+            animatorSprite.SetBool("Reverse", true);
+        }
+        else{ 
+            animatorEyes.SetBool("Reverse", false);
+            animatorSprite.SetBool("Reverse", false);
+        }
+
+
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
 
@@ -47,7 +63,7 @@ public class AIShoot : MonoBehaviour
         //Wandering
         if (distance > VisionRange || CanSeePlayer(distance) == false)
         {
-
+            animatorEyes.SetBool("GhostInRange", false);
             transform.position = Vector2.MoveTowards(transform.position, waypoint, wanderingTime * Time.deltaTime);
             if (Vector2.Distance(transform.position, waypoint) < StepsInWanderingArea)
             {
@@ -62,7 +78,7 @@ public class AIShoot : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
-
+            animatorEyes.SetBool("GhostInRange", true);
         }
 
 
@@ -87,6 +103,7 @@ public class AIShoot : MonoBehaviour
         waypoint = new Vector2(transform.position.x + Random.Range(-WanderingArea, WanderingArea), transform.position.y + Random.Range(-WanderingArea, WanderingArea));
  
     }
+
 
 
     private void OnTriggerEnter2D(Collider2D collision)

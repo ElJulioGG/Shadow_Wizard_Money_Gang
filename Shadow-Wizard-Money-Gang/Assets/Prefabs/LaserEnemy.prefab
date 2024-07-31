@@ -284,8 +284,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.98, y: 6.49, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.1375, y: 1.1375, z: 1.1375}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7701212596729131014}
   m_Father: {fileID: 0}
@@ -306,6 +306,8 @@ MonoBehaviour:
   FacingThePlayerDistance: 6
   VisionRange: 7
   wanderingTime: 0.5
+  animatorEyes: {fileID: 0}
+  animatorSprite: {fileID: 0}
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 64
@@ -381,9 +383,9 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.8867924, g: 0.29128143, b: 0, a: 1}
+  m_SortingOrder: 40
+  m_Sprite: {fileID: 21300000, guid: 31175f67ce124d7408c6e265199a98cc, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -425,18 +427,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.25197577, y: 0}
+  m_Offset: {x: -0.25197577, y: 0.009853601}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5089021, y: 2}
+  m_Size: {x: 0.5089021, y: 0.64022017}
   m_EdgeRadius: 0
 --- !u!50 &5237876155752474538
 Rigidbody2D:
@@ -450,8 +452,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
+  m_Mass: 5.5
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
